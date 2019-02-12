@@ -1,0 +1,2495 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/blumrm/Dropbox/current projects/Trumpism&ForPol/Publication_Uploads/BlumParker_ANES_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Feb 2019, 14:23:44
+
+{com}. do "/var/folders/cg/n5yn9g3s21g5pb8bmljjv1dnjymqtn/T//SD73902.000000"
+{txt}
+{com}. ***********************************
+. *Rachel Blum and Christoper Parker*
+. *Coding/Analysis of 2016 ANES Time Series*
+. *Prepared for Perspectives on Politics, 2019*
+. ***********************************
+. 
+. *use "/anes_timeseries_2016_Stata12.dta"
+. set more off
+{txt}
+{com}. 
+. ***********
+. *Contents:
+. **A. Variable coding
+. **B. Descriptive statistics
+. **C. Regression models
+. ************
+. 
+. ***
+. *A. Variable coding (alphabetical)*
+. ***
+. 
+. **1. Age**
+. tab V161267
+
+             {txt}PRE: Respondent age {c |}      Freq.     Percent        Cum.
+{hline 33}{c +}{hline 35}
+          -9. RF (year of birth) {c |}{res}        120        2.81        2.81
+{txt}-8. DK (year of birth, FTF only) {c |}{res}          1        0.02        2.83
+{txt}                              18 {c |}{res}         28        0.66        3.49
+{txt}                              19 {c |}{res}         39        0.91        4.40
+{txt}                              20 {c |}{res}         54        1.26        5.67
+{txt}                              21 {c |}{res}         53        1.24        6.91
+{txt}                              22 {c |}{res}         44        1.03        7.94
+{txt}                              23 {c |}{res}         56        1.31        9.25
+{txt}                              24 {c |}{res}         55        1.29       10.54
+{txt}                              25 {c |}{res}         63        1.48       12.01
+{txt}                              26 {c |}{res}         70        1.64       13.65
+{txt}                              27 {c |}{res}         70        1.64       15.29
+{txt}                              28 {c |}{res}         60        1.40       16.69
+{txt}                              29 {c |}{res}         60        1.40       18.10
+{txt}                              30 {c |}{res}         69        1.62       19.71
+{txt}                              31 {c |}{res}         78        1.83       21.54
+{txt}                              32 {c |}{res}         86        2.01       23.55
+{txt}                              33 {c |}{res}         73        1.71       25.26
+{txt}                              34 {c |}{res}         81        1.90       27.16
+{txt}                              35 {c |}{res}         79        1.85       29.01
+{txt}                              36 {c |}{res}         69        1.62       30.63
+{txt}                              37 {c |}{res}         85        1.99       32.62
+{txt}                              38 {c |}{res}         66        1.55       34.16
+{txt}                              39 {c |}{res}         75        1.76       35.92
+{txt}                              40 {c |}{res}         51        1.19       37.11
+{txt}                              41 {c |}{res}         66        1.55       38.66
+{txt}                              42 {c |}{res}         67        1.57       40.22
+{txt}                              43 {c |}{res}         51        1.19       41.42
+{txt}                              44 {c |}{res}         46        1.08       42.50
+{txt}                              45 {c |}{res}         70        1.64       44.13
+{txt}                              46 {c |}{res}         83        1.94       46.08
+{txt}                              47 {c |}{res}         66        1.55       47.62
+{txt}                              48 {c |}{res}         53        1.24       48.86
+{txt}                              49 {c |}{res}         67        1.57       50.43
+{txt}                              50 {c |}{res}         59        1.38       51.81
+{txt}                              51 {c |}{res}         72        1.69       53.50
+{txt}                              52 {c |}{res}         59        1.38       54.88
+{txt}                              53 {c |}{res}         81        1.90       56.78
+{txt}                              54 {c |}{res}         78        1.83       58.60
+{txt}                              55 {c |}{res}         78        1.83       60.43
+{txt}                              56 {c |}{res}         88        2.06       62.49
+{txt}                              57 {c |}{res}         76        1.78       64.27
+{txt}                              58 {c |}{res}         94        2.20       66.47
+{txt}                              59 {c |}{res}         96        2.25       68.72
+{txt}                              60 {c |}{res}         89        2.08       70.80
+{txt}                              61 {c |}{res}         80        1.87       72.68
+{txt}                              62 {c |}{res}         69        1.62       74.29
+{txt}                              63 {c |}{res}         72        1.69       75.98
+{txt}                              64 {c |}{res}         75        1.76       77.73
+{txt}                              65 {c |}{res}         69        1.62       79.35
+{txt}                              66 {c |}{res}         88        2.06       81.41
+{txt}                              67 {c |}{res}         78        1.83       83.24
+{txt}                              68 {c |}{res}         94        2.20       85.44
+{txt}                              69 {c |}{res}         55        1.29       86.72
+{txt}                              70 {c |}{res}         54        1.26       87.99
+{txt}                              71 {c |}{res}         49        1.15       89.14
+{txt}                              72 {c |}{res}         53        1.24       90.38
+{txt}                              73 {c |}{res}         38        0.89       91.27
+{txt}                              74 {c |}{res}         45        1.05       92.32
+{txt}                              75 {c |}{res}         34        0.80       93.12
+{txt}                              76 {c |}{res}         41        0.96       94.08
+{txt}                              77 {c |}{res}         26        0.61       94.69
+{txt}                              78 {c |}{res}         29        0.68       95.36
+{txt}                              79 {c |}{res}         21        0.49       95.86
+{txt}                              80 {c |}{res}         24        0.56       96.42
+{txt}                              81 {c |}{res}         24        0.56       96.98
+{txt}                              82 {c |}{res}         24        0.56       97.54
+{txt}                              83 {c |}{res}         12        0.28       97.82
+{txt}                              84 {c |}{res}         13        0.30       98.13
+{txt}                              85 {c |}{res}         12        0.28       98.41
+{txt}                              86 {c |}{res}         14        0.33       98.74
+{txt}                              87 {c |}{res}          9        0.21       98.95
+{txt}                              88 {c |}{res}         12        0.28       99.23
+{txt}                              89 {c |}{res}          6        0.14       99.37
+{txt}             90. Age 90 or older {c |}{res}         27        0.63      100.00
+{txt}{hline 33}{c +}{hline 35}
+                           Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen age=V161267 if V161267>=19
+{txt}(149 missing values generated)
+
+{com}. tab age
+
+        {txt}age {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+         19 {c |}{res}         39        0.95        0.95
+{txt}         20 {c |}{res}         54        1.31        2.26
+{txt}         21 {c |}{res}         53        1.29        3.54
+{txt}         22 {c |}{res}         44        1.07        4.61
+{txt}         23 {c |}{res}         56        1.36        5.97
+{txt}         24 {c |}{res}         55        1.33        7.30
+{txt}         25 {c |}{res}         63        1.53        8.83
+{txt}         26 {c |}{res}         70        1.70       10.53
+{txt}         27 {c |}{res}         70        1.70       12.23
+{txt}         28 {c |}{res}         60        1.46       13.68
+{txt}         29 {c |}{res}         60        1.46       15.14
+{txt}         30 {c |}{res}         69        1.67       16.81
+{txt}         31 {c |}{res}         78        1.89       18.70
+{txt}         32 {c |}{res}         86        2.09       20.79
+{txt}         33 {c |}{res}         73        1.77       22.56
+{txt}         34 {c |}{res}         81        1.97       24.53
+{txt}         35 {c |}{res}         79        1.92       26.44
+{txt}         36 {c |}{res}         69        1.67       28.12
+{txt}         37 {c |}{res}         85        2.06       30.18
+{txt}         38 {c |}{res}         66        1.60       31.78
+{txt}         39 {c |}{res}         75        1.82       33.60
+{txt}         40 {c |}{res}         51        1.24       34.84
+{txt}         41 {c |}{res}         66        1.60       36.44
+{txt}         42 {c |}{res}         67        1.63       38.06
+{txt}         43 {c |}{res}         51        1.24       39.30
+{txt}         44 {c |}{res}         46        1.12       40.42
+{txt}         45 {c |}{res}         70        1.70       42.12
+{txt}         46 {c |}{res}         83        2.01       44.13
+{txt}         47 {c |}{res}         66        1.60       45.73
+{txt}         48 {c |}{res}         53        1.29       47.02
+{txt}         49 {c |}{res}         67        1.63       48.64
+{txt}         50 {c |}{res}         59        1.43       50.07
+{txt}         51 {c |}{res}         72        1.75       51.82
+{txt}         52 {c |}{res}         59        1.43       53.25
+{txt}         53 {c |}{res}         81        1.97       55.22
+{txt}         54 {c |}{res}         78        1.89       57.11
+{txt}         55 {c |}{res}         78        1.89       59.00
+{txt}         56 {c |}{res}         88        2.13       61.14
+{txt}         57 {c |}{res}         76        1.84       62.98
+{txt}         58 {c |}{res}         94        2.28       65.26
+{txt}         59 {c |}{res}         96        2.33       67.59
+{txt}         60 {c |}{res}         89        2.16       69.75
+{txt}         61 {c |}{res}         80        1.94       71.69
+{txt}         62 {c |}{res}         69        1.67       73.36
+{txt}         63 {c |}{res}         72        1.75       75.11
+{txt}         64 {c |}{res}         75        1.82       76.93
+{txt}         65 {c |}{res}         69        1.67       78.60
+{txt}         66 {c |}{res}         88        2.13       80.74
+{txt}         67 {c |}{res}         78        1.89       82.63
+{txt}         68 {c |}{res}         94        2.28       84.91
+{txt}         69 {c |}{res}         55        1.33       86.24
+{txt}         70 {c |}{res}         54        1.31       87.55
+{txt}         71 {c |}{res}         49        1.19       88.74
+{txt}         72 {c |}{res}         53        1.29       90.03
+{txt}         73 {c |}{res}         38        0.92       90.95
+{txt}         74 {c |}{res}         45        1.09       92.04
+{txt}         75 {c |}{res}         34        0.82       92.87
+{txt}         76 {c |}{res}         41        0.99       93.86
+{txt}         77 {c |}{res}         26        0.63       94.49
+{txt}         78 {c |}{res}         29        0.70       95.20
+{txt}         79 {c |}{res}         21        0.51       95.71
+{txt}         80 {c |}{res}         24        0.58       96.29
+{txt}         81 {c |}{res}         24        0.58       96.87
+{txt}         82 {c |}{res}         24        0.58       97.45
+{txt}         83 {c |}{res}         12        0.29       97.74
+{txt}         84 {c |}{res}         13        0.32       98.06
+{txt}         85 {c |}{res}         12        0.29       98.35
+{txt}         86 {c |}{res}         14        0.34       98.69
+{txt}         87 {c |}{res}          9        0.22       98.91
+{txt}         88 {c |}{res}         12        0.29       99.20
+{txt}         89 {c |}{res}          6        0.15       99.34
+{txt}         90 {c |}{res}         27        0.66      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,122      100.00
+{txt}
+{com}. ***
+. 
+. **2. Education**
+. *Recoded so 1 is highschool but no diploma (4-8),*
+. *2 is HS grad (9), 3 is some college (10-12),*
+. *4 is college degress (13), 5 is post grad (14-16)*
+. 
+. tab V161270
+
+        {txt}PRE: Highest level of Education {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         15        0.35        0.35
+{txt}                 1. Less than 1st grade {c |}{res}          1        0.02        0.37
+{txt}          2. 1st, 2nd, 3rd or 4th grade {c |}{res}          3        0.07        0.44
+{txt}                    3. 5th or 6th grade {c |}{res}         15        0.35        0.80
+{txt}                    4. 7th or 8th grade {c |}{res}         22        0.52        1.31
+{txt}                           5. 9th grade {c |}{res}         32        0.75        2.06
+{txt}                          6. 10th grade {c |}{res}         40        0.94        3.00
+{txt}                          7. 11th grade {c |}{res}         62        1.45        4.45
+{txt}               8. 12th grade no diploma {c |}{res}        107        2.51        6.95
+{txt}9. High school graduate- high school di {c |}{res}        810       18.97       25.92
+{txt}         10. Some college but no degree {c |}{res}        899       21.05       46.97
+{txt}11. Associate degree in college - occup {c |}{res}        313        7.33       54.30
+{txt}12. Associate degree in college -- acad {c |}{res}        288        6.74       61.04
+{txt}13. Bachelor's degree (for example: BA, {c |}{res}        955       22.36       83.40
+{txt}14. Master's degree (for example: MA, M {c |}{res}        499       11.68       95.08
+{txt}15. Professional school degree (for exa {c |}{res}         88        2.06       97.14
+{txt}16. Doctorate degree (for example: PHD, {c |}{res}         93        2.18       99.32
+{txt}90. Other specify given as: high school {c |}{res}          5        0.12       99.44
+{txt}                      95. Other SPECIFY {c |}{res}         24        0.56      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen education=.
+{txt}(4,271 missing values generated)
+
+{com}. replace education=1 if V161270>=4 & V161270<=8
+{txt}(263 real changes made)
+
+{com}. replace education=2 if V161270==9
+{txt}(810 real changes made)
+
+{com}. replace education=3 if V161270>=10 & V161270<=12
+{txt}(1,500 real changes made)
+
+{com}. replace education=4 if V161270==13
+{txt}(955 real changes made)
+
+{com}. replace education=5 if V161270>=14 & V161270<=16
+{txt}(680 real changes made)
+
+{com}. tab education
+
+  {txt}education {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        263        6.25        6.25
+{txt}          2 {c |}{res}        810       19.25       25.50
+{txt}          3 {c |}{res}      1,500       35.65       61.15
+{txt}          4 {c |}{res}        955       22.69       83.84
+{txt}          5 {c |}{res}        680       16.16      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,208      100.00
+{txt}
+{com}. ***
+. 
+. **3. Ethnocentrism Scale using hardworking stereotype**
+. *(In appendix models only)**
+. 
+. *Blacks*
+. tab V162346
+
+ {txt}POST: FTF CASI/WEB: Stereotype: Blacks {c |}
+                            hardworking {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         54        1.26        1.26
+{txt}-7. No post data, deleted due to incomp {c |}{res}         86        2.01        3.28
+{txt}         -6. No post-election interview {c |}{res}        536       12.55       15.83
+{txt}    -5. Breakoff, sufficient partial IW {c |}{res}         31        0.73       16.55
+{txt}                        1. Hard-working {c |}{res}        258        6.04       22.59
+{txt}                                      2 {c |}{res}        333        7.80       30.39
+{txt}                                      3 {c |}{res}        698       16.34       46.73
+{txt}                                      4 {c |}{res}      1,257       29.43       76.16
+{txt}                                      5 {c |}{res}        605       14.17       90.33
+{txt}                                      6 {c |}{res}        277        6.49       96.82
+{txt}                                7. Lazy {c |}{res}        136        3.18      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen black_resent=V162346 if V162346>=1 
+{txt}(707 missing values generated)
+
+{com}. tab black_resent
+
+{txt}black_resen {c |}
+          t {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        258        7.24        7.24
+{txt}          2 {c |}{res}        333        9.34       16.58
+{txt}          3 {c |}{res}        698       19.58       36.17
+{txt}          4 {c |}{res}      1,257       35.27       71.44
+{txt}          5 {c |}{res}        605       16.98       88.41
+{txt}          6 {c |}{res}        277        7.77       96.18
+{txt}          7 {c |}{res}        136        3.82      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,564      100.00
+{txt}
+{com}. 
+. *Latinos*
+. tab V162347
+
+        {txt}POST: FTF CASI/WEB: Stereotype: {c |}
+                  Hispanics hardworking {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         57        1.33        1.33
+{txt}-7. No post data, deleted due to incomp {c |}{res}         86        2.01        3.35
+{txt}         -6. No post-election interview {c |}{res}        536       12.55       15.90
+{txt}    -5. Breakoff, sufficient partial IW {c |}{res}         31        0.73       16.62
+{txt}                        1. Hard-working {c |}{res}        767       17.96       34.58
+{txt}                                      2 {c |}{res}        835       19.55       54.13
+{txt}                                      3 {c |}{res}        816       19.11       73.24
+{txt}                                      4 {c |}{res}        855       20.02       93.26
+{txt}                                      5 {c |}{res}        194        4.54       97.80
+{txt}                                      6 {c |}{res}         57        1.33       99.13
+{txt}                                7. Lazy {c |}{res}         37        0.87      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen latino_resent=V162347 if V162347>=1 
+{txt}(710 missing values generated)
+
+{com}. tab latino_resent
+
+{txt}latino_rese {c |}
+         nt {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        767       21.54       21.54
+{txt}          2 {c |}{res}        835       23.45       44.99
+{txt}          3 {c |}{res}        816       22.91       67.90
+{txt}          4 {c |}{res}        855       24.01       91.91
+{txt}          5 {c |}{res}        194        5.45       97.36
+{txt}          6 {c |}{res}         57        1.60       98.96
+{txt}          7 {c |}{res}         37        1.04      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,561      100.00
+{txt}
+{com}. 
+. * Asians*
+. tab V162348
+
+ {txt}POST: FTF CASI/WEB: Stereotype: Asians {c |}
+                            hardworking {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         58        1.36        1.36
+{txt}-7. No post data, deleted due to incomp {c |}{res}         86        2.01        3.37
+{txt}         -6. No post-election interview {c |}{res}        536       12.55       15.92
+{txt}    -5. Breakoff, sufficient partial IW {c |}{res}         31        0.73       16.65
+{txt}                        1. Hard-working {c |}{res}        877       20.53       37.18
+{txt}                                      2 {c |}{res}        989       23.16       60.34
+{txt}                                      3 {c |}{res}        722       16.90       77.24
+{txt}                                      4 {c |}{res}        737       17.26       94.50
+{txt}                                      5 {c |}{res}        163        3.82       98.31
+{txt}                                      6 {c |}{res}         49        1.15       99.46
+{txt}                                7. Lazy {c |}{res}         23        0.54      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen asian_resent=V162348 if V162348>=1 
+{txt}(711 missing values generated)
+
+{com}. tab asian_resent
+
+{txt}asian_resen {c |}
+          t {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        877       24.63       24.63
+{txt}          2 {c |}{res}        989       27.78       52.42
+{txt}          3 {c |}{res}        722       20.28       72.70
+{txt}          4 {c |}{res}        737       20.70       93.40
+{txt}          5 {c |}{res}        163        4.58       97.98
+{txt}          6 {c |}{res}         49        1.38       99.35
+{txt}          7 {c |}{res}         23        0.65      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,560      100.00
+{txt}
+{com}. 
+. * Whites*
+. tab V162345
+
+ {txt}POST: FTF CASI/WEB: stereotype: Whites {c |}
+                            hardworking {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         53        1.24        1.24
+{txt}-7. No post data, deleted due to incomp {c |}{res}         86        2.01        3.25
+{txt}         -6. No post-election interview {c |}{res}        536       12.55       15.80
+{txt}    -5. Breakoff, sufficient partial IW {c |}{res}         31        0.73       16.53
+{txt}                        1. Hard-working {c |}{res}        457       10.70       27.23
+{txt}                                      2 {c |}{res}        700       16.39       43.62
+{txt}                                      3 {c |}{res}        865       20.25       63.87
+{txt}                                      4 {c |}{res}      1,189       27.84       91.71
+{txt}                                      5 {c |}{res}        254        5.95       97.66
+{txt}                                      6 {c |}{res}         67        1.57       99.23
+{txt}                                7. Lazy {c |}{res}         33        0.77      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen white_resent=V162345 if V162345>=1 
+{txt}(706 missing values generated)
+
+{com}. tab white_resent
+
+{txt}white_resen {c |}
+          t {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        457       12.82       12.82
+{txt}          2 {c |}{res}        700       19.64       32.45
+{txt}          3 {c |}{res}        865       24.26       56.72
+{txt}          4 {c |}{res}      1,189       33.35       90.07
+{txt}          5 {c |}{res}        254        7.12       97.19
+{txt}          6 {c |}{res}         67        1.88       99.07
+{txt}          7 {c |}{res}         33        0.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,565      100.00
+{txt}
+{com}. 
+. *Scale (positive means others are lazier than whites)*
+. gen ethnobl=black_resent-white_resent
+{txt}(709 missing values generated)
+
+{com}. gen ethnola=latino_resent-white_resent
+{txt}(713 missing values generated)
+
+{com}. gen ethnoas=asian_resent-white_resent
+{txt}(716 missing values generated)
+
+{com}. gen ethnocentrism=(ethnobl+ethnola+ethnoas)/3
+{txt}(720 missing values generated)
+
+{com}. 
+. *Alpha=0.65*
+. alpha black_resent latino_resent asian_resent, item
+
+{txt}Test scale = mean(unstandardized items)
+
+                                                            average
+                             item-test     item-rest       interitem
+Item         {c |}  Obs  Sign   correlation   correlation     covariance      alpha
+{hline 13}{c +}{hline 65}
+black_resent{col 14}{c |}{res}{col 16}3564{col 24}+{col 31} 0.7056{col 45} 0.3347{col 59} 1.010083{col 73} 0.7279
+{txt}latino_res~t{col 14}{c |}{res}{col 16}3561{col 24}+{col 31} 0.8255{col 45} 0.5740{col 59} .4618989{col 73} 0.3964
+{txt}asian_resent{col 14}{c |}{res}{col 16}3560{col 24}+{col 31} 0.7775{col 45} 0.4949{col 59} .6575824{col 73} 0.5109
+{txt}{hline 13}{c +}{hline 65}
+Test scale{col 14}{c |}{res}{col 59} .7097556{col 73} 0.6512
+{txt}{hline 13}{c BT}{hline 65}
+
+{com}. ***
+. 
+. **4. Female**
+. tab V161342
+
+    {txt}PRE FTF CASI / WEB: R {c |}
+   self-identified gender {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+              -9. Refused {c |}{res}         41        0.96        0.96
+{txt}                  1. Male {c |}{res}      1,987       46.52       47.48
+{txt}                2. Female {c |}{res}      2,232       52.26       99.74
+{txt}                 3. Other {c |}{res}         11        0.26      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen female=.
+{txt}(4,271 missing values generated)
+
+{com}. replace female=1 if V161342==2
+{txt}(2,232 real changes made)
+
+{com}. replace female=0 if V161342==1
+{txt}(1,987 real changes made)
+
+{com}. tab female
+
+     {txt}female {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,987       47.10       47.10
+{txt}          1 {c |}{res}      2,232       52.90      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,219      100.00
+{txt}
+{com}. ***
+. 
+. **5. Ideology and Conservatism**
+. tab V161126
+
+    {txt}PRE: 7pt scale Liberal conservative {c |}
+                         self-placement {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         18        0.42        0.42
+{txt}              -8. Don't know (FTF only) {c |}{res}          5        0.12        0.54
+{txt}                   1. Extremely liberal {c |}{res}        146        3.42        3.96
+{txt}                             2. Liberal {c |}{res}        506       11.85       15.80
+{txt}                    3. Slightly liberal {c |}{res}        380        8.90       24.70
+{txt}        4. Moderate, middle of the road {c |}{res}        895       20.96       45.66
+{txt}               5. Slightly conservative {c |}{res}        508       11.89       57.55
+{txt}                        6. Conservative {c |}{res}        703       16.46       74.01
+{txt}              7. Extremely conservative {c |}{res}        166        3.89       77.90
+{txt}99. Haven't thought much about this (FT {c |}{res}        944       22.10      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen ideo=.
+{txt}(4,271 missing values generated)
+
+{com}. replace ideo=1 if V161126==1
+{txt}(146 real changes made)
+
+{com}. replace ideo=2 if V161126==2
+{txt}(506 real changes made)
+
+{com}. replace ideo=3 if V161126==3
+{txt}(380 real changes made)
+
+{com}. replace ideo=4 if V161126==4
+{txt}(895 real changes made)
+
+{com}. replace ideo=5 if V161126==5
+{txt}(508 real changes made)
+
+{com}. replace ideo=6 if V161126==6
+{txt}(703 real changes made)
+
+{com}. replace ideo=7 if V161126==7
+{txt}(166 real changes made)
+
+{com}. tab ideo
+
+       {txt}ideo {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        146        4.42        4.42
+{txt}          2 {c |}{res}        506       15.31       19.73
+{txt}          3 {c |}{res}        380       11.50       31.23
+{txt}          4 {c |}{res}        895       27.09       58.32
+{txt}          5 {c |}{res}        508       15.38       73.70
+{txt}          6 {c |}{res}        703       21.28       94.98
+{txt}          7 {c |}{res}        166        5.02      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      3,304      100.00
+{txt}
+{com}. 
+. gen conserv=.
+{txt}(4,271 missing values generated)
+
+{com}. replace conserv=1 if ideo==4
+{txt}(895 real changes made)
+
+{com}. replace conserv=2 if ideo==5
+{txt}(508 real changes made)
+
+{com}. replace conserv=3 if ideo==6
+{txt}(703 real changes made)
+
+{com}. replace conserv=4 if ideo==7
+{txt}(166 real changes made)
+
+{com}. tab conserv
+
+    {txt}conserv {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        895       39.39       39.39
+{txt}          2 {c |}{res}        508       22.36       61.75
+{txt}          3 {c |}{res}        703       30.94       92.69
+{txt}          4 {c |}{res}        166        7.31      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      2,272      100.00
+{txt}
+{com}. ***
+. 
+. **6. Income**
+. tab V161361x
+
+   {txt}PRE FTF CASI/WEB: Pre income summary {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}        190        4.45        4.45
+{txt}-5. Interview breakoff (sufficient part {c |}{res}         12        0.28        4.73
+{txt}                       01. Under $5,000 {c |}{res}        276        6.46       11.19
+{txt}                      02. $5,000-$9,999 {c |}{res}         96        2.25       13.44
+{txt}                    03. $10,000-$12,499 {c |}{res}        133        3.11       16.55
+{txt}                    04. $12,500-$14,999 {c |}{res}         37        0.87       17.42
+{txt}                    05. $15,000-$17,499 {c |}{res}        110        2.58       20.00
+{txt}                    06. $17,500-$19,999 {c |}{res}         52        1.22       21.21
+{txt}                    07. $20,000-$22,499 {c |}{res}        153        3.58       24.80
+{txt}                    08. $22,500-$24,999 {c |}{res}         64        1.50       26.29
+{txt}                    09. $25,000-$27,499 {c |}{res}        143        3.35       29.64
+{txt}                    10. $27,500-$29,999 {c |}{res}         34        0.80       30.44
+{txt}                    11. $30,000-$34,999 {c |}{res}        213        4.99       35.42
+{txt}                    12. $35,000-$39,999 {c |}{res}        166        3.89       39.31
+{txt}                    13. $40,000-$44,999 {c |}{res}        178        4.17       43.48
+{txt}                    14. $45,000-$49,999 {c |}{res}        154        3.61       47.08
+{txt}                    15. $50,000-$54,999 {c |}{res}        204        4.78       51.86
+{txt}                    16. $55,000-$59,999 {c |}{res}         85        1.99       53.85
+{txt}                    17. $60,000-$64,999 {c |}{res}        205        4.80       58.65
+{txt}                    18. $65,000-$69,999 {c |}{res}        107        2.51       61.16
+{txt}                    19. $70,000-$74,999 {c |}{res}        138        3.23       64.39
+{txt}                    20. $75,000-$79,999 {c |}{res}        126        2.95       67.34
+{txt}                    21. $80,000-$89,999 {c |}{res}        231        5.41       72.75
+{txt}                    22. $90,000-$99,999 {c |}{res}        176        4.12       76.87
+{txt}                  23. $100,000-$109,999 {c |}{res}        191        4.47       81.34
+{txt}                  24. $110,000-$124,999 {c |}{res}        182        4.26       85.60
+{txt}                  25. $125,000-$149,999 {c |}{res}        166        3.89       89.49
+{txt}                  26. $150,000-$174,999 {c |}{res}        154        3.61       93.09
+{txt}                  27. $175,000-$249,999 {c |}{res}        154        3.61       96.70
+{txt}                   28. $250,000 or more {c |}{res}        141        3.30      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen income=V161361x if V161361x>=1
+{txt}(202 missing values generated)
+
+{com}. tab income
+
+     {txt}income {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        276        6.78        6.78
+{txt}          2 {c |}{res}         96        2.36        9.14
+{txt}          3 {c |}{res}        133        3.27       12.41
+{txt}          4 {c |}{res}         37        0.91       13.32
+{txt}          5 {c |}{res}        110        2.70       16.02
+{txt}          6 {c |}{res}         52        1.28       17.30
+{txt}          7 {c |}{res}        153        3.76       21.06
+{txt}          8 {c |}{res}         64        1.57       22.63
+{txt}          9 {c |}{res}        143        3.51       26.15
+{txt}         10 {c |}{res}         34        0.84       26.98
+{txt}         11 {c |}{res}        213        5.23       32.22
+{txt}         12 {c |}{res}        166        4.08       36.30
+{txt}         13 {c |}{res}        178        4.37       40.67
+{txt}         14 {c |}{res}        154        3.78       44.46
+{txt}         15 {c |}{res}        204        5.01       49.47
+{txt}         16 {c |}{res}         85        2.09       51.56
+{txt}         17 {c |}{res}        205        5.04       56.60
+{txt}         18 {c |}{res}        107        2.63       59.23
+{txt}         19 {c |}{res}        138        3.39       62.62
+{txt}         20 {c |}{res}        126        3.10       65.72
+{txt}         21 {c |}{res}        231        5.68       71.39
+{txt}         22 {c |}{res}        176        4.33       75.72
+{txt}         23 {c |}{res}        191        4.69       80.41
+{txt}         24 {c |}{res}        182        4.47       84.89
+{txt}         25 {c |}{res}        166        4.08       88.97
+{txt}         26 {c |}{res}        154        3.78       92.75
+{txt}         27 {c |}{res}        154        3.78       96.53
+{txt}         28 {c |}{res}        141        3.47      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,069      100.00
+{txt}
+{com}. ***
+. 
+. **7.Isolationism/Stay at home (agree)**
+. *Dependent Variable*
+. tab V161153
+
+    {txt}PRE: Country would be {c |}
+    better off if we just {c |}
+              stayed home {c |}      Freq.     Percent        Cum.
+{hline 26}{c +}{hline 35}
+              -9. Refused {c |}{res}         21        0.49        0.49
+{txt}-8. Don't know (FTF only) {c |}{res}         19        0.44        0.94
+{txt}                 1. Agree {c |}{res}      1,320       30.91       31.84
+{txt}              2. Disagree {c |}{res}      2,911       68.16      100.00
+{txt}{hline 26}{c +}{hline 35}
+                    Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen isolate=.
+{txt}(4,271 missing values generated)
+
+{com}. replace isolate=1 if V161153==1
+{txt}(1,320 real changes made)
+
+{com}. replace isolate=0 if V161153==2
+{txt}(2,911 real changes made)
+
+{com}. ***
+. 
+. **8. Nationalism/neo-conservatism scale**
+. *(In appendix models only)**
+. 
+. tab V162271
+
+{txt}POST: To be truly American important to {c |}
+                 have been born in U.S. {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}         21        0.49        0.49
+{txt}                         -8. Don't know {c |}{res}          5        0.12        0.61
+{txt}-7. No post data, deleted due to incomp {c |}{res}         86        2.01        2.62
+{txt}         -6. No post-election interview {c |}{res}        536       12.55       15.17
+{txt}                      1. Very important {c |}{res}        911       21.33       36.50
+{txt}                    2. Fairly important {c |}{res}      1,026       24.02       60.52
+{txt}                  3. Not very important {c |}{res}        961       22.50       83.03
+{txt}                4. Not important at all {c |}{res}        725       16.97      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen born=.
+{txt}(4,271 missing values generated)
+
+{com}. replace born=1 if V162271==4
+{txt}(725 real changes made)
+
+{com}. replace born=2 if V162271==3
+{txt}(961 real changes made)
+
+{com}. replace born=3 if V162271==2
+{txt}(1,026 real changes made)
+
+{com}. replace born=4 if V162271==1
+{txt}(911 real changes made)
+
+{com}. 
+. gen ancestr=.
+{txt}(4,271 missing values generated)
+
+{com}. replace ancestr=1 if V162272==4
+{txt}(993 real changes made)
+
+{com}. replace ancestr=2 if V162272==3
+{txt}(1,172 real changes made)
+
+{com}. replace ancestr=3 if V162272==2
+{txt}(927 real changes made)
+
+{com}. replace ancestr=4 if V162272==1
+{txt}(532 real changes made)
+
+{com}. 
+. gen english=.
+{txt}(4,271 missing values generated)
+
+{com}. replace english=1 if V162273==4
+{txt}(130 real changes made)
+
+{com}. replace english=2 if V162273==3
+{txt}(281 real changes made)
+
+{com}. replace english=3 if V162273==2
+{txt}(1,034 real changes made)
+
+{com}. replace english=4 if V162273==1
+{txt}(2,187 real changes made)
+
+{com}. 
+. gen trad=.
+{txt}(4,271 missing values generated)
+
+{com}. replace trad=1 if V162274==4
+{txt}(243 real changes made)
+
+{com}. replace trad=2 if V162274==3
+{txt}(725 real changes made)
+
+{com}. replace trad=3 if V162274==2
+{txt}(1,415 real changes made)
+
+{com}. replace trad=4 if V162274==1
+{txt}(1,239 real changes made)
+
+{com}. 
+. gen nationalism=(born+ancestr+english+trad)/4
+{txt}(661 missing values generated)
+
+{com}. 
+. *Alpha=0.70*
+. alpha born ancestr english trad, item
+
+{txt}Test scale = mean(unstandardized items)
+
+                                                            average
+                             item-test     item-rest       interitem
+Item         {c |}  Obs  Sign   correlation   correlation     covariance      alpha
+{hline 13}{c +}{hline 65}
+born{col 14}{c |}{res}{col 16}3623{col 24}+{col 31} 0.8369{col 45} 0.6558{col 59} .3634911{col 73} 0.7035
+{txt}ancestr{col 14}{c |}{res}{col 16}3624{col 24}+{col 31} 0.8276{col 45} 0.6531{col 59} .3791535{col 73} 0.7038
+{txt}english{col 14}{c |}{res}{col 16}3632{col 24}+{col 31} 0.7053{col 45} 0.5265{col 59} .5261509{col 73} 0.7693
+{txt}trad{col 14}{c |}{res}{col 16}3622{col 24}+{col 31} 0.7511{col 45} 0.5605{col 59}  .469267{col 73} 0.7515
+{txt}{hline 13}{c +}{hline 65}
+Test scale{col 14}{c |}{res}{col 59} .4345053{col 73} 0.7874
+{txt}{hline 13}{c BT}{hline 65}
+
+{com}. ***
+. 
+. **9. Party identification**
+. *Used in descriptive statistics only*
+. tab V161158x
+
+                {txt}PRE: SUMMARY - Party ID {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                                     -9 {c |}{res}         12        0.28        0.28
+{txt}-8. DK (-8) in V161156 or V161157 (FTF  {c |}{res}         11        0.26        0.54
+{txt}                     1. Strong Democrat {c |}{res}        890       20.84       21.38
+{txt}           2. Not very strong Democract {c |}{res}        560       13.11       34.49
+{txt}                3. Independent-Democrat {c |}{res}        490       11.47       45.96
+{txt}                         4. Independent {c |}{res}        579       13.56       59.52
+{txt}              5. Independent-Republican {c |}{res}        500       11.71       71.22
+{txt}          6. Not very strong Republican {c |}{res}        508       11.89       83.12
+{txt}                   7. Strong Republican {c |}{res}        721       16.88      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. gen pid=.
+{txt}(4,271 missing values generated)
+
+{com}. replace pid=1 if V161158x==1
+{txt}(890 real changes made)
+
+{com}. replace pid=2 if V161158x==2
+{txt}(560 real changes made)
+
+{com}. replace pid=3 if V161158x==3
+{txt}(490 real changes made)
+
+{com}. replace pid=4 if V161158x==4
+{txt}(579 real changes made)
+
+{com}. replace pid=5 if V161158x==5
+{txt}(500 real changes made)
+
+{com}. replace pid=6 if V161158x==6
+{txt}(508 real changes made)
+
+{com}. replace pid=7 if V161158x==7
+{txt}(721 real changes made)
+
+{com}. tab pid
+
+        {txt}pid {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}        890       20.95       20.95
+{txt}          2 {c |}{res}        560       13.18       34.13
+{txt}          3 {c |}{res}        490       11.53       45.67
+{txt}          4 {c |}{res}        579       13.63       59.30
+{txt}          5 {c |}{res}        500       11.77       71.07
+{txt}          6 {c |}{res}        508       11.96       83.03
+{txt}          7 {c |}{res}        721       16.97      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      4,248      100.00
+{txt}
+{com}. ***
+. 
+. **10. Primary choice**
+. tab V161021a
+
+ {txt}PRE: For which candidate did R vote in {c |}
+                      Presidential prim {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}          6        0.14        0.14
+{txt}              -8. Don't know (FTF only) {c |}{res}          3        0.07        0.21
+{txt}           -1. Inap, 2,-8,-9 in V161021 {c |}{res}      2,389       55.94       56.15
+{txt}                     1. Hillary Clinton {c |}{res}        579       13.56       69.70
+{txt}                      2. Bernie Sanders {c |}{res}        392        9.18       78.88
+{txt}                    3. Another Democrat {c |}{res}         19        0.44       79.33
+{txt}                        4. Donald Trump {c |}{res}        446       10.44       89.77
+{txt}                            5. Ted Cruz {c |}{res}        162        3.79       93.56
+{txt}                         6. John Kasich {c |}{res}        114        2.67       96.23
+{txt}                         7. Marco Rubio {c |}{res}         85        1.99       98.22
+{txt}                  8. Another Republican {c |}{res}         52        1.22       99.44
+{txt}9. Someone else who is not a Republican {c |}{res}         24        0.56      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}      4,271      100.00
+{txt}
+{com}. rename V161021a primary
+{res}{txt}
+{com}. keep if primary >=1
+{txt}(2,398 observations deleted)
+
+{com}. 
+. *For comparison purposes (Note: 4=Trump, 5=Cruz, 6=Kasich, 7=Rubio, 8=other)*
+. gen primarygop=primary
+{txt}
+{com}. keep if primarygop>=4 & primarygop<=8
+{txt}(1,014 observations deleted)
+
+{com}. ***
+. 
+. **11.Syrian refugees (oppose)**
+. *Dependent Variable*
+. tab V161214x
+
+   {txt}PRE: SUMMARY - Allow Syrian refugees {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+     -9. RF (-9) in V161214 or V161214a {c |}{res}          3        0.35        0.35
+{txt}                  1. Favor a great deal {c |}{res}         19        2.21        2.56
+{txt}             2. Favor a moderate amount {c |}{res}         30        3.49        6.05
+{txt}                      3. Favor a little {c |}{res}         12        1.40        7.45
+{txt}            4. Neither favor nor oppose {c |}{res}        145       16.88       24.33
+{txt}                     5. Oppose a little {c |}{res}         22        2.56       26.89
+{txt}            6. Oppose a moderate amount {c |}{res}        145       16.88       43.77
+{txt}                 7. Oppose a great deal {c |}{res}        483       56.23      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        859      100.00
+{txt}
+{com}. gen refugee=V161214x if V161214x>=1
+{txt}(3 missing values generated)
+
+{com}. tab refugee
+
+    {txt}refugee {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         19        2.22        2.22
+{txt}          2 {c |}{res}         30        3.50        5.72
+{txt}          3 {c |}{res}         12        1.40        7.13
+{txt}          4 {c |}{res}        145       16.94       24.07
+{txt}          5 {c |}{res}         22        2.57       26.64
+{txt}          6 {c |}{res}        145       16.94       43.57
+{txt}          7 {c |}{res}        483       56.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        856      100.00
+{txt}
+{com}. ***
+. 
+. **12. Trade agreements (oppose)**
+. *Dependent Variable*
+. tab V162176x
+
+ {txt}POST: SUMMARY- Favor/oppose free trade {c |}
+                             agreements {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Refused {c |}{res}          2        0.23        0.23
+{txt}                         -8. Don't know {c |}{res}          8        0.93        1.16
+{txt}-7. No post data, deleted due to incomp {c |}{res}         17        1.98        3.14
+{txt}         -6. No post-election interview {c |}{res}        104       12.11       15.25
+{txt}                  1. Favor a great deal {c |}{res}         75        8.73       23.98
+{txt}                    2. Favor moderately {c |}{res}        166       19.32       43.31
+{txt}                      3. Favor a little {c |}{res}         30        3.49       46.80
+{txt}            4. Neither favor nor oppose {c |}{res}        258       30.03       76.83
+{txt}                     5. Oppose a little {c |}{res}         22        2.56       79.39
+{txt}                   6. Oppose moderately {c |}{res}        102       11.87       91.27
+{txt}                 7. Oppose a great deal {c |}{res}         75        8.73      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        859      100.00
+{txt}
+{com}. gen free_trade=V162176x if V162176x>=1
+{txt}(131 missing values generated)
+
+{com}. tab free_trade
+
+ {txt}free_trade {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         75       10.30       10.30
+{txt}          2 {c |}{res}        166       22.80       33.10
+{txt}          3 {c |}{res}         30        4.12       37.23
+{txt}          4 {c |}{res}        258       35.44       72.66
+{txt}          5 {c |}{res}         22        3.02       75.69
+{txt}          6 {c |}{res}        102       14.01       89.70
+{txt}          7 {c |}{res}         75       10.30      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        728      100.00
+{txt}
+{com}. ***
+. 
+. **13. Trump primary support**
+. *Key Independent Variable*
+. gen trumpgop=.
+{txt}(859 missing values generated)
+
+{com}. replace trumpgop=1 if primarygop==4
+{txt}(446 real changes made)
+
+{com}. replace trumpgop=0 if primarygop>=5
+{txt}(413 real changes made)
+
+{com}. tab trumpgop
+
+   {txt}trumpgop {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        413       48.08       48.08
+{txt}          1 {c |}{res}        446       51.92      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        859      100.00
+{txt}
+{com}. ***
+. 
+. **14. White/Not white**
+. *Not white used in models*
+. tab V161310x
+
+  {txt}PRE: SUMMARY - R self-identified race {c |}      Freq.     Percent        Cum.
+{hline 40}{c +}{hline 35}
+                            -9. Missing {c |}{res}          5        0.58        0.58
+{txt}                 1. White, non-Hispanic {c |}{res}        770       89.64       90.22
+{txt}                 2. Black, non-Hispanic {c |}{res}          5        0.58       90.80
+{txt}3. Asian, native Hawaiian or other Paci {c |}{res}         19        2.21       93.02
+{txt}4. Native American or Alaska Native, no {c |}{res}          3        0.35       93.36
+{txt}                            5. Hispanic {c |}{res}         34        3.96       97.32
+{txt}6. Other non-Hispanic incl multiple rac {c |}{res}         23        2.68      100.00
+{txt}{hline 40}{c +}{hline 35}
+                                  Total {c |}{res}        859      100.00
+{txt}
+{com}. gen white=.
+{txt}(859 missing values generated)
+
+{com}. replace white=1 if V161310x==1
+{txt}(770 real changes made)
+
+{com}. replace white=0 if V161310x>=2
+{txt}(84 real changes made)
+
+{com}. tab white
+
+      {txt}white {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         84        9.84        9.84
+{txt}          1 {c |}{res}        770       90.16      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        854      100.00
+{txt}
+{com}. 
+. gen notwhite=.
+{txt}(859 missing values generated)
+
+{com}. replace notwhite=1 if white==0
+{txt}(84 real changes made)
+
+{com}. replace notwhite=0 if white==1
+{txt}(770 real changes made)
+
+{com}. ***
+. 
+. **************************
+. ***
+. *B. Descriptive statistics*
+. ***
+. 
+. **1. Table 1**
+. *Restrict to 2016 GOP primary voters through primarygop variable*
+. 
+. *Average age*
+. sum age
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}        836    56.91388    15.80881         19         90
+{txt}
+{com}. 
+. *Average education*
+. sum education
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 3}education {c |}{res}        850    3.412941    1.012325          1          5
+{txt}
+{com}. 
+. *Percent female*
+. tab female
+
+     {txt}female {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        445       52.35       52.35
+{txt}          1 {c |}{res}        405       47.65      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        850      100.00
+{txt}
+{com}. 
+. *Average ideology*
+. sum ideo
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}ideo {c |}{res}        777    5.480051    1.073306          1          7
+{txt}
+{com}. 
+. *Average income*
+. sum income
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}income {c |}{res}        809    17.46106     7.54959          1         28
+{txt}
+{com}. 
+. *Average party identification*
+. sum pid
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}pid {c |}{res}        858    5.970862    1.368197          1          7
+{txt}
+{com}. 
+. *Percent white*
+. table white
+
+{txt}{hline 10}{c TT}{hline 11}
+    white {c |}      Freq.
+{hline 10}{c +}{hline 11}
+        0 {c |}         {res}84
+        {txt}1 {c |}        {res}770
+{txt}{hline 10}{c BT}{hline 11}
+
+{com}. ***
+. 
+. ***
+. **2. Table 2: Candidate Preference**
+. tabulate primarygop
+
+ {txt}primarygop {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          4 {c |}{res}        446       51.92       51.92
+{txt}          5 {c |}{res}        162       18.86       70.78
+{txt}          6 {c |}{res}        114       13.27       84.05
+{txt}          7 {c |}{res}         85        9.90       93.95
+{txt}          8 {c |}{res}         52        6.05      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        859      100.00
+{txt}
+{com}. ***
+. 
+. **3. Appendix: cross-tabs of dependent variables**
+. *Against GOP primary candidates*
+. tabulate refugee primarygop, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                       primarygop
+   refugee {c |}         4          5          6          7          8 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}         2          3          8          3          3 {txt}{c |}{res}        19 
+           {txt}{c |}{res}      0.45       1.88       7.02       3.53       5.88 {txt}{c |}{res}      2.22 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         2 {c |}{res}         8          3         16          2          1 {txt}{c |}{res}        30 
+           {txt}{c |}{res}      1.79       1.88      14.04       2.35       1.96 {txt}{c |}{res}      3.50 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         3 {c |}{res}         0          5          4          3          0 {txt}{c |}{res}        12 
+           {txt}{c |}{res}      0.00       3.12       3.51       3.53       0.00 {txt}{c |}{res}      1.40 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         4 {c |}{res}        51         30         39         16          9 {txt}{c |}{res}       145 
+           {txt}{c |}{res}     11.43      18.75      34.21      18.82      17.65 {txt}{c |}{res}     16.94 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         5 {c |}{res}         6          3          8          4          1 {txt}{c |}{res}        22 
+           {txt}{c |}{res}      1.35       1.88       7.02       4.71       1.96 {txt}{c |}{res}      2.57 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         6 {c |}{res}        71         28         13         18         15 {txt}{c |}{res}       145 
+           {txt}{c |}{res}     15.92      17.50      11.40      21.18      29.41 {txt}{c |}{res}     16.94 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         7 {c |}{res}       308         88         26         39         22 {txt}{c |}{res}       483 
+           {txt}{c |}{res}     69.06      55.00      22.81      45.88      43.14 {txt}{c |}{res}     56.43 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       446        160        114         85         51 {txt}{c |}{res}       856 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}24{txt}) = {res}168.8810  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate isolate primarygop, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                       primarygop
+   isolate {c |}         4          5          6          7          8 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         0 {c |}{res}       303        138         90         65         40 {txt}{c |}{res}       636 
+           {txt}{c |}{res}     68.24      85.71      80.36      77.38      76.92 {txt}{c |}{res}     74.56 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}       141         23         22         19         12 {txt}{c |}{res}       217 
+           {txt}{c |}{res}     31.76      14.29      19.64      22.62      23.08 {txt}{c |}{res}     25.44 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       444        161        112         84         52 {txt}{c |}{res}       853 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res} 22.3907  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate free_trade primarygop, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                       primarygop
+free_trade {c |}         4          5          6          7          8 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}        31         17         14         10          3 {txt}{c |}{res}        75 
+           {txt}{c |}{res}      8.33      12.32      13.59      13.33       7.50 {txt}{c |}{res}     10.30 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         2 {c |}{res}        70         28         34         23         11 {txt}{c |}{res}       166 
+           {txt}{c |}{res}     18.82      20.29      33.01      30.67      27.50 {txt}{c |}{res}     22.80 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         3 {c |}{res}         8          9          7          5          1 {txt}{c |}{res}        30 
+           {txt}{c |}{res}      2.15       6.52       6.80       6.67       2.50 {txt}{c |}{res}      4.12 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         4 {c |}{res}       135         48         32         25         18 {txt}{c |}{res}       258 
+           {txt}{c |}{res}     36.29      34.78      31.07      33.33      45.00 {txt}{c |}{res}     35.44 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         5 {c |}{res}        13          3          5          1          0 {txt}{c |}{res}        22 
+           {txt}{c |}{res}      3.49       2.17       4.85       1.33       0.00 {txt}{c |}{res}      3.02 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         6 {c |}{res}        64         21          6          7          4 {txt}{c |}{res}       102 
+           {txt}{c |}{res}     17.20      15.22       5.83       9.33      10.00 {txt}{c |}{res}     14.01 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         7 {c |}{res}        51         12          5          4          3 {txt}{c |}{res}        75 
+           {txt}{c |}{res}     13.71       8.70       4.85       5.33       7.50 {txt}{c |}{res}     10.30 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       372        138        103         75         40 {txt}{c |}{res}       728 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}24{txt}) = {res} 47.2126  {txt} Pr = {res}0.003
+{txt}
+{com}. 
+. *Against Trump support*
+. tabulate refugee trumpgop, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpgop
+   refugee {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        17          2 {txt}{c |}{res}        19 
+           {txt}{c |}{res}      4.15       0.45 {txt}{c |}{res}      2.22 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}        22          8 {txt}{c |}{res}        30 
+           {txt}{c |}{res}      5.37       1.79 {txt}{c |}{res}      3.50 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}        12          0 {txt}{c |}{res}        12 
+           {txt}{c |}{res}      2.93       0.00 {txt}{c |}{res}      1.40 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}        94         51 {txt}{c |}{res}       145 
+           {txt}{c |}{res}     22.93      11.43 {txt}{c |}{res}     16.94 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         5 {c |}{res}        16          6 {txt}{c |}{res}        22 
+           {txt}{c |}{res}      3.90       1.35 {txt}{c |}{res}      2.57 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         6 {c |}{res}        74         71 {txt}{c |}{res}       145 
+           {txt}{c |}{res}     18.05      15.92 {txt}{c |}{res}     16.94 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         7 {c |}{res}       175        308 {txt}{c |}{res}       483 
+           {txt}{c |}{res}     42.68      69.06 {txt}{c |}{res}     56.43 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       410        446 {txt}{c |}{res}       856 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res} 82.9906  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate isolate trumpgop, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpgop
+   isolate {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         0 {c |}{res}       333        303 {txt}{c |}{res}       636 
+           {txt}{c |}{res}     81.42      68.24 {txt}{c |}{res}     74.56 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        76        141 {txt}{c |}{res}       217 
+           {txt}{c |}{res}     18.58      31.76 {txt}{c |}{res}     25.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       409        444 {txt}{c |}{res}       853 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}1{txt}) = {res} 19.4818  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate free_trade trumpgop, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpgop
+free_trade {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}        44         31 {txt}{c |}{res}        75 
+           {txt}{c |}{res}     12.36       8.33 {txt}{c |}{res}     10.30 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}        96         70 {txt}{c |}{res}       166 
+           {txt}{c |}{res}     26.97      18.82 {txt}{c |}{res}     22.80 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}        22          8 {txt}{c |}{res}        30 
+           {txt}{c |}{res}      6.18       2.15 {txt}{c |}{res}      4.12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}       123        135 {txt}{c |}{res}       258 
+           {txt}{c |}{res}     34.55      36.29 {txt}{c |}{res}     35.44 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         5 {c |}{res}         9         13 {txt}{c |}{res}        22 
+           {txt}{c |}{res}      2.53       3.49 {txt}{c |}{res}      3.02 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         6 {c |}{res}        38         64 {txt}{c |}{res}       102 
+           {txt}{c |}{res}     10.67      17.20 {txt}{c |}{res}     14.01 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         7 {c |}{res}        24         51 {txt}{c |}{res}        75 
+           {txt}{c |}{res}      6.74      13.71 {txt}{c |}{res}     10.30 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       356        372 {txt}{c |}{res}       728 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res} 30.1547  {txt} Pr = {res}0.000
+{txt}
+{com}. ***
+. 
+. **************************
+. ***
+. *C. Models*
+. ***
+. 
+. **1. In Paper**
+. *Note: use of conserv or ideo for ideology produce nearly identical results*
+. 
+. *Isolationism*
+. logit isolate i.trumpgop conserv education income age female white
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-374.43013}  
+Iteration 1:{space 3}log likelihood = {res:-352.34755}  
+Iteration 2:{space 3}log likelihood = {res:-351.83936}  
+Iteration 3:{space 3}log likelihood = {res:-351.83884}  
+Iteration 4:{space 3}log likelihood = {res:-351.83884}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       684
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}     45.18
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-351.83884{txt}{col 49}Pseudo R2{col 67}= {res}    0.0603
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     isolate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2} .7705293{col 26}{space 2} .1952577{col 37}{space 1}    3.95{col 46}{space 3}0.000{col 54}{space 4} .3878311{col 67}{space 3} 1.153227
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2} -.085221{col 26}{space 2} .1007481{col 37}{space 1}   -0.85{col 46}{space 3}0.398{col 54}{space 4}-.2826837{col 67}{space 3} .1122417
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.0948997{col 26}{space 2} .1002478{col 37}{space 1}   -0.95{col 46}{space 3}0.344{col 54}{space 4}-.2913818{col 67}{space 3} .1015825
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0243983{col 26}{space 2} .0130132{col 37}{space 1}   -1.87{col 46}{space 3}0.061{col 54}{space 4}-.0499036{col 67}{space 3}  .001107
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0277128{col 26}{space 2} .0060361{col 37}{space 1}   -4.59{col 46}{space 3}0.000{col 54}{space 4}-.0395433{col 67}{space 3}-.0158824
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.3159011{col 26}{space 2} .1904755{col 37}{space 1}   -1.66{col 46}{space 3}0.097{col 54}{space 4}-.6892263{col 67}{space 3} .0574241
+{txt}{space 7}white {c |}{col 14}{res}{space 2} .1069554{col 26}{space 2} .3299813{col 37}{space 1}    0.32{col 46}{space 3}0.746{col 54}{space 4} -.539796{col 67}{space 3} .7537069
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .9482528{col 26}{space 2} .6819662{col 37}{space 1}    1.39{col 46}{space 3}0.164{col 54}{space 4}-.3883764{col 67}{space 3} 2.284882
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       684
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(isolate), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4883041 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5116959 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.580409 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.476608 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.85088 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.91228 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4546784 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:white}{space 11}{txt:=} {space 3}.9093567 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}trumpgop {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .1596702{col 26}{space 2}  .020426{col 37}{space 1}    7.82{col 46}{space 3}0.000{col 54}{space 4} .1196361{col 67}{space 3} .1997044
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2910779{col 26}{space 2} .0252928{col 37}{space 1}   11.51{col 46}{space 3}0.000{col 54}{space 4}  .241505{col 67}{space 3} .3406508
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Syria Refugees*
+. ologit refugee i.trumpgop conserv education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-866.52838}  
+Iteration 1:{space 3}log likelihood = {res: -813.6425}  
+Iteration 2:{space 3}log likelihood = {res:-812.65015}  
+Iteration 3:{space 3}log likelihood = {res:-812.64893}  
+Iteration 4:{space 3}log likelihood = {res:-812.64893}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       688
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}    107.76
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-812.64893{txt}{col 49}Pseudo R2{col 67}= {res}    0.0622
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     refugee{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2} 1.157545{col 26}{space 2} .1608017{col 37}{space 1}    7.20{col 46}{space 3}0.000{col 54}{space 4}   .84238{col 67}{space 3} 1.472711
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2} .5126983{col 26}{space 2} .0842789{col 37}{space 1}    6.08{col 46}{space 3}0.000{col 54}{space 4} .3475146{col 67}{space 3}  .677882
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.1044722{col 26}{space 2} .0820488{col 37}{space 1}   -1.27{col 46}{space 3}0.203{col 54}{space 4}-.2652849{col 67}{space 3} .0563406
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0082435{col 26}{space 2} .0111061{col 37}{space 1}   -0.74{col 46}{space 3}0.458{col 54}{space 4}-.0300111{col 67}{space 3} .0135241
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0104003{col 26}{space 2}  .004987{col 37}{space 1}    2.09{col 46}{space 3}0.037{col 54}{space 4} .0006259{col 67}{space 3} .0201747
+{txt}{space 6}female {c |}{col 14}{res}{space 2} -.030651{col 26}{space 2} .1555584{col 37}{space 1}   -0.20{col 46}{space 3}0.844{col 54}{space 4}-.3355398{col 67}{space 3} .2742377
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2}-.0463408{col 26}{space 2} .2737489{col 37}{space 1}   -0.17{col 46}{space 3}0.866{col 54}{space 4}-.5828788{col 67}{space 3} .4901973
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}-2.157002{col 26}{space 2}  .574655{col 54}{space 4}-3.283305{col 67}{space 3}-1.030699
+{txt}       /cut2 {c |}{col 14}{res}{space 2}-1.249349{col 26}{space 2} .5424717{col 54}{space 4}-2.312574{col 67}{space 3}-.1861237
+{txt}       /cut3 {c |}{col 14}{res}{space 2}-.9925731{col 26}{space 2} .5377912{col 54}{space 4}-2.046625{col 67}{space 3} .0614784
+{txt}       /cut4 {c |}{col 14}{res}{space 2}   .61069{col 26}{space 2} .5282296{col 54}{space 4} -.424621{col 67}{space 3} 1.646001
+{txt}       /cut5 {c |}{col 14}{res}{space 2} .7897696{col 26}{space 2} .5285688{col 54}{space 4}-.2462062{col 67}{space 3} 1.825745
+{txt}       /cut6 {c |}{col 14}{res}{space 2} 1.645286{col 26}{space 2} .5322908{col 54}{space 4}  .602015{col 67}{space 3} 2.688557
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       688
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(refugee==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(refugee==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(refugee==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(refugee==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(refugee==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(refugee==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(refugee==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4883721 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5116279 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.582849 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.475291 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.85756 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.90552 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4534884 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0901163 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2} .0280668{col 31}{space 2} .0073506{col 42}{space 1}    3.82{col 51}{space 3}0.000{col 59}{space 4} .0136598{col 72}{space 3} .0424737
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0089933{col 31}{space 2} .0025766{col 42}{space 1}    3.49{col 51}{space 3}0.000{col 59}{space 4} .0039432{col 72}{space 3} .0140433
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2}  .038725{col 31}{space 2} .0087621{col 42}{space 1}    4.42{col 51}{space 3}0.000{col 59}{space 4} .0215516{col 72}{space 3} .0558985
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2}  .013004{col 31}{space 2} .0032742{col 42}{space 1}    3.97{col 51}{space 3}0.000{col 59}{space 4} .0065867{col 72}{space 3} .0194213
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0178976{col 31}{space 2} .0059845{col 42}{space 1}    2.99{col 51}{space 3}0.003{col 59}{space 4} .0061683{col 72}{space 3}  .029627
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0062579{col 31}{space 2} .0021942{col 42}{space 1}    2.85{col 51}{space 3}0.004{col 59}{space 4} .0019573{col 72}{space 3} .0105584
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .2302754{col 31}{space 2} .0210906{col 42}{space 1}   10.92{col 51}{space 3}0.000{col 59}{space 4} .1889386{col 72}{space 3} .2716122
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .0979922{col 31}{space 2} .0122982{col 42}{space 1}    7.97{col 51}{space 3}0.000{col 59}{space 4} .0738881{col 72}{space 3} .1220962
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0398527{col 31}{space 2} .0088112{col 42}{space 1}    4.52{col 51}{space 3}0.000{col 59}{space 4} .0225831{col 72}{space 3} .0571222
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0211107{col 31}{space 2} .0048848{col 42}{space 1}    4.32{col 51}{space 3}0.000{col 59}{space 4} .0115367{col 72}{space 3} .0306846
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .2092255{col 31}{space 2} .0178274{col 42}{space 1}   11.74{col 51}{space 3}0.000{col 59}{space 4} .1742844{col 72}{space 3} .2441665
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2}  .141701{col 31}{space 2} .0141001{col 42}{space 1}   10.05{col 51}{space 3}0.000{col 59}{space 4} .1140654{col 72}{space 3} .1693366
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2}  .435957{col 31}{space 2} .0272986{col 42}{space 1}   15.97{col 51}{space 3}0.000{col 59}{space 4} .3824527{col 72}{space 3} .4894613
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2}  .710941{col 31}{space 2} .0245361{col 42}{space 1}   28.98{col 51}{space 3}0.000{col 59}{space 4} .6628511{col 72}{space 3} .7590309
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Trade*
+. ologit free_trade i.trumpgop conserv education income age female white
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-1009.6173}  
+Iteration 1:{space 3}log likelihood = {res:-991.67376}  
+Iteration 2:{space 3}log likelihood = {res:-991.59795}  
+Iteration 3:{space 3}log likelihood = {res:-991.59793}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       594
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}     36.04
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-991.59793{txt}{col 49}Pseudo R2{col 67}= {res}    0.0178
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  free_trade{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2} .5544905{col 26}{space 2} .1531438{col 37}{space 1}    3.62{col 46}{space 3}0.000{col 54}{space 4} .2543341{col 67}{space 3} .8546469
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2} .0896879{col 26}{space 2} .0796408{col 37}{space 1}    1.13{col 46}{space 3}0.260{col 54}{space 4}-.0664052{col 67}{space 3}  .245781
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.2055115{col 26}{space 2} .0784153{col 37}{space 1}   -2.62{col 46}{space 3}0.009{col 54}{space 4}-.3592026{col 67}{space 3}-.0518204
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0177605{col 26}{space 2} .0105321{col 37}{space 1}   -1.69{col 46}{space 3}0.092{col 54}{space 4} -.038403{col 67}{space 3} .0028819
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0122161{col 26}{space 2} .0046465{col 37}{space 1}   -2.63{col 46}{space 3}0.009{col 54}{space 4} -.021323{col 67}{space 3}-.0031091
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.0290797{col 26}{space 2} .1488897{col 37}{space 1}   -0.20{col 46}{space 3}0.845{col 54}{space 4}-.3208981{col 67}{space 3} .2627387
+{txt}{space 7}white {c |}{col 14}{res}{space 2}-.0202291{col 26}{space 2} .2718594{col 37}{space 1}   -0.07{col 46}{space 3}0.941{col 54}{space 4}-.5530637{col 67}{space 3} .5126055
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}-3.606606{col 26}{space 2} .5709451{col 54}{space 4}-4.725637{col 67}{space 3}-2.487574
+{txt}       /cut2 {c |}{col 14}{res}{space 2}-1.964704{col 26}{space 2} .5549092{col 54}{space 4}-3.052306{col 67}{space 3}-.8771022
+{txt}       /cut3 {c |}{col 14}{res}{space 2}-1.749967{col 26}{space 2} .5536242{col 54}{space 4} -2.83505{col 67}{space 3}-.6648831
+{txt}       /cut4 {c |}{col 14}{res}{space 2}-.2327666{col 26}{space 2} .5491588{col 54}{space 4}-1.309098{col 67}{space 3} .8435649
+{txt}       /cut5 {c |}{col 14}{res}{space 2}-.0408312{col 26}{space 2} .5498002{col 54}{space 4} -1.11842{col 67}{space 3} 1.036757
+{txt}       /cut6 {c |}{col 14}{res}{space 2} .9805895{col 26}{space 2}  .557184{col 54}{space 4}-.1114712{col 67}{space 3}  2.07265
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       594
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(free_trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(free_trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(free_trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(free_trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(free_trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(free_trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(free_trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4983165 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5016835 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.574074 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.520202 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 4}18.0101 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.93603 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 4}.452862 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:white}{space 11}{txt:=} {space 3}.9124579 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2} .1123462{col 31}{space 2} .0155212{col 42}{space 1}    7.24{col 51}{space 3}0.000{col 59}{space 4} .0819253{col 72}{space 3} .1427671
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0677683{col 31}{space 2} .0106092{col 42}{space 1}    6.39{col 51}{space 3}0.000{col 59}{space 4} .0469746{col 72}{space 3} .0885619
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .2829519{col 31}{space 2} .0220732{col 42}{space 1}   12.82{col 51}{space 3}0.000{col 59}{space 4} .2396892{col 72}{space 3} .3262147
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2} .2052057{col 31}{space 2} .0193398{col 42}{space 1}   10.61{col 51}{space 3}0.000{col 59}{space 4} .1673005{col 72}{space 3} .2431109
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0523055{col 31}{space 2} .0096621{col 42}{space 1}    5.41{col 51}{space 3}0.000{col 59}{space 4} .0333682{col 72}{space 3} .0712428
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0446206{col 31}{space 2} .0083805{col 42}{space 1}    5.32{col 51}{space 3}0.000{col 59}{space 4} .0281952{col 72}{space 3}  .061046
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .3393807{col 31}{space 2} .0201902{col 42}{space 1}   16.81{col 51}{space 3}0.000{col 59}{space 4} .2998087{col 72}{space 3} .3789526
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .3620963{col 31}{space 2} .0205843{col 42}{space 1}   17.59{col 51}{space 3}0.000{col 59}{space 4} .3217518{col 72}{space 3} .4024409
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0304078{col 31}{space 2} .0066984{col 42}{space 1}    4.54{col 51}{space 3}0.000{col 59}{space 4} .0172791{col 72}{space 3} .0435365
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0402739{col 31}{space 2} .0087119{col 42}{space 1}    4.62{col 51}{space 3}0.000{col 59}{space 4} .0231988{col 72}{space 3}  .057349
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .1081536{col 31}{space 2} .0133178{col 42}{space 1}    8.12{col 51}{space 3}0.000{col 59}{space 4} .0820513{col 72}{space 3}  .134256
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1571845{col 31}{space 2} .0175679{col 42}{space 1}    8.95{col 51}{space 3}0.000{col 59}{space 4} .1227521{col 72}{space 3} .1916169
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .0744543{col 31}{space 2} .0111563{col 42}{space 1}    6.67{col 51}{space 3}0.000{col 59}{space 4} .0525883{col 72}{space 3} .0963203
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .1228507{col 31}{space 2} .0163888{col 42}{space 1}    7.50{col 51}{space 3}0.000{col 59}{space 4} .0907291{col 72}{space 3} .1549722
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ***
+. 
+. **2.In Appendix**
+. *Model 2: With nationalism*
+. logit isolate i.trumpgop conserv nationalism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-320.52617}  
+Iteration 1:{space 3}log likelihood = {res:-290.58655}  
+Iteration 2:{space 3}log likelihood = {res:-289.41059}  
+Iteration 3:{space 3}log likelihood = {res:-289.40622}  
+Iteration 4:{space 3}log likelihood = {res:-289.40622}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       593
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     62.24
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-289.40622{txt}{col 49}Pseudo R2{col 67}= {res}    0.0971
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     isolate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2} .6982414{col 26}{space 2} .2178052{col 37}{space 1}    3.21{col 46}{space 3}0.001{col 54}{space 4}  .271351{col 67}{space 3} 1.125132
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2}-.1291627{col 26}{space 2} .1106902{col 37}{space 1}   -1.17{col 46}{space 3}0.243{col 54}{space 4}-.3461115{col 67}{space 3} .0877862
+{txt}{space 1}nationalism {c |}{col 14}{res}{space 2} .8089106{col 26}{space 2} .1931677{col 37}{space 1}    4.19{col 46}{space 3}0.000{col 54}{space 4} .4303089{col 67}{space 3} 1.187512
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.0542743{col 26}{space 2}  .111116{col 37}{space 1}   -0.49{col 46}{space 3}0.625{col 54}{space 4}-.2720576{col 67}{space 3}  .163509
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0220798{col 26}{space 2} .0142874{col 37}{space 1}   -1.55{col 46}{space 3}0.122{col 54}{space 4}-.0500825{col 67}{space 3}  .005923
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0305501{col 26}{space 2} .0066625{col 37}{space 1}   -4.59{col 46}{space 3}0.000{col 54}{space 4}-.0436084{col 67}{space 3}-.0174918
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.2651342{col 26}{space 2} .2109235{col 37}{space 1}   -1.26{col 46}{space 3}0.209{col 54}{space 4}-.6785368{col 67}{space 3} .1482683
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2}-.1244726{col 26}{space 2} .3757598{col 37}{space 1}   -0.33{col 46}{space 3}0.740{col 54}{space 4}-.8609483{col 67}{space 3} .6120031
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2}-1.379131{col 26}{space 2} .9295691{col 37}{space 1}   -1.48{col 46}{space 3}0.138{col 54}{space 4}-3.201053{col 67}{space 3} .4427912
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       593
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(isolate), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4991568 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5008432 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.580101 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 3}3.029933 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.514334 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 4}17.9511 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.83642 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4569983 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0893761 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}trumpgop {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .1522342{col 26}{space 2} .0217091{col 37}{space 1}    7.01{col 46}{space 3}0.000{col 54}{space 4} .1096851{col 67}{space 3} .1947832
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2652333{col 26}{space 2} .0276532{col 37}{space 1}    9.59{col 46}{space 3}0.000{col 54}{space 4}  .211034{col 67}{space 3} .3194326
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit refugee i.trumpgop conserv nationalism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-751.83408}  
+Iteration 1:{space 3}log likelihood = {res:-689.16995}  
+Iteration 2:{space 3}log likelihood = {res:-687.54921}  
+Iteration 3:{space 3}log likelihood = {res: -687.5452}  
+Iteration 4:{space 3}log likelihood = {res: -687.5452}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       597
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}    128.58
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res} -687.5452{txt}{col 49}Pseudo R2{col 67}= {res}    0.0855
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     refugee{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2} .9807171{col 26}{space 2} .1753503{col 37}{space 1}    5.59{col 46}{space 3}0.000{col 54}{space 4} .6370368{col 67}{space 3} 1.324397
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2} .3967261{col 26}{space 2} .0917469{col 37}{space 1}    4.32{col 46}{space 3}0.000{col 54}{space 4} .2169056{col 67}{space 3} .5765467
+{txt}{space 1}nationalism {c |}{col 14}{res}{space 2} .9731414{col 26}{space 2} .1497691{col 37}{space 1}    6.50{col 46}{space 3}0.000{col 54}{space 4} .6795993{col 67}{space 3} 1.266684
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.0815978{col 26}{space 2} .0878403{col 37}{space 1}   -0.93{col 46}{space 3}0.353{col 54}{space 4}-.2537616{col 67}{space 3} .0905659
+{txt}{space 6}income {c |}{col 14}{res}{space 2} -.005977{col 26}{space 2}  .011979{col 37}{space 1}   -0.50{col 46}{space 3}0.618{col 54}{space 4}-.0294554{col 67}{space 3} .0175014
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0083567{col 26}{space 2} .0054196{col 37}{space 1}    1.54{col 46}{space 3}0.123{col 54}{space 4}-.0022655{col 67}{space 3} .0189789
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.0853192{col 26}{space 2} .1689753{col 37}{space 1}   -0.50{col 46}{space 3}0.614{col 54}{space 4}-.4165048{col 67}{space 3} .2458664
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} .2727607{col 26}{space 2} .2995456{col 37}{space 1}    0.91{col 46}{space 3}0.363{col 54}{space 4}-.3143379{col 67}{space 3} .8598593
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}  .235846{col 26}{space 2} .7537733{col 54}{space 4}-1.241522{col 67}{space 3} 1.713214
+{txt}       /cut2 {c |}{col 14}{res}{space 2} 1.080551{col 26}{space 2}  .730701{col 54}{space 4}-.3515971{col 67}{space 3} 2.512698
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 1.372058{col 26}{space 2} .7273706{col 54}{space 4}-.0535618{col 67}{space 3} 2.797679
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 3.096094{col 26}{space 2} .7283642{col 54}{space 4} 1.668527{col 67}{space 3} 4.523662
+{txt}       /cut5 {c |}{col 14}{res}{space 2} 3.281338{col 26}{space 2} .7297245{col 54}{space 4} 1.851104{col 67}{space 3} 4.711572
+{txt}       /cut6 {c |}{col 14}{res}{space 2} 4.226582{col 26}{space 2}  .739201{col 54}{space 4} 2.777775{col 67}{space 3}  5.67539
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       597
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(refugee==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(refugee==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(refugee==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(refugee==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(refugee==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(refugee==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(refugee==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4991625 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5008375 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.582915 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 3}3.027638 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.512563 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.95812 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.82915 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4556114 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0887772 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2} .0218497{col 31}{space 2} .0063103{col 42}{space 1}    3.46{col 51}{space 3}0.001{col 59}{space 4} .0094817{col 72}{space 3} .0342177
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2}  .008308{col 31}{space 2} .0026024{col 42}{space 1}    3.19{col 51}{space 3}0.001{col 59}{space 4} .0032074{col 72}{space 3} .0134086
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .0275677{col 31}{space 2} .0073511{col 42}{space 1}    3.75{col 51}{space 3}0.000{col 59}{space 4} .0131598{col 72}{space 3} .0419756
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2} .0108162{col 31}{space 2}  .003139{col 42}{space 1}    3.45{col 51}{space 3}0.001{col 59}{space 4} .0046639{col 72}{space 3} .0169685
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2}  .015637{col 31}{space 2}    .0056{col 42}{space 1}    2.79{col 51}{space 3}0.005{col 59}{space 4} .0046613{col 72}{space 3} .0266127
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0063079{col 31}{space 2} .0023616{col 42}{space 1}    2.67{col 51}{space 3}0.008{col 59}{space 4} .0016793{col 72}{space 3} .0109364
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .2155978{col 31}{space 2} .0222263{col 42}{space 1}    9.70{col 51}{space 3}0.000{col 59}{space 4} .1720351{col 72}{space 3} .2591605
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .1022126{col 31}{space 2} .0139336{col 42}{space 1}    7.34{col 51}{space 3}0.000{col 59}{space 4} .0749034{col 72}{space 3} .1295219
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0388664{col 31}{space 2} .0093553{col 42}{space 1}    4.15{col 51}{space 3}0.000{col 59}{space 4} .0205303{col 72}{space 3} .0572026
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0220876{col 31}{space 2} .0055512{col 42}{space 1}    3.98{col 51}{space 3}0.000{col 59}{space 4} .0112073{col 72}{space 3} .0329678
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .2276555{col 31}{space 2}  .020257{col 42}{space 1}   11.24{col 51}{space 3}0.000{col 59}{space 4} .1879526{col 72}{space 3} .2673585
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1621235{col 31}{space 2} .0167933{col 42}{space 1}    9.65{col 51}{space 3}0.000{col 59}{space 4} .1292093{col 72}{space 3} .1950376
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .4528258{col 31}{space 2} .0301156{col 42}{space 1}   15.04{col 51}{space 3}0.000{col 59}{space 4} .3938003{col 72}{space 3} .5118514
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .6881442{col 31}{space 2} .0278983{col 42}{space 1}   24.67{col 51}{space 3}0.000{col 59}{space 4} .6334645{col 72}{space 3} .7428239
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit free_trade i.trumpgop conserv nationalism education income age female white
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-1005.7146}  
+Iteration 1:{space 3}log likelihood = {res:-986.27622}  
+Iteration 2:{space 3}log likelihood = {res:-986.18546}  
+Iteration 3:{space 3}log likelihood = {res:-986.18544}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       591
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     39.06
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-986.18544{txt}{col 49}Pseudo R2{col 67}= {res}    0.0194
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  free_trade{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 2}1.trumpgop {c |}{col 14}{res}{space 2}   .51648{col 26}{space 2} .1560243{col 37}{space 1}    3.31{col 46}{space 3}0.001{col 54}{space 4} .2106781{col 67}{space 3}  .822282
+{txt}{space 5}conserv {c |}{col 14}{res}{space 2} .0880532{col 26}{space 2} .0800428{col 37}{space 1}    1.10{col 46}{space 3}0.271{col 54}{space 4}-.0688277{col 67}{space 3} .2449341
+{txt}{space 1}nationalism {c |}{col 14}{res}{space 2}  .200382{col 26}{space 2}  .130223{col 37}{space 1}    1.54{col 46}{space 3}0.124{col 54}{space 4}-.0548504{col 67}{space 3} .4556145
+{txt}{space 3}education {c |}{col 14}{res}{space 2}-.1964971{col 26}{space 2} .0792341{col 37}{space 1}   -2.48{col 46}{space 3}0.013{col 54}{space 4}-.3517931{col 67}{space 3}-.0412011
+{txt}{space 6}income {c |}{col 14}{res}{space 2} -.016993{col 26}{space 2}  .010607{col 37}{space 1}   -1.60{col 46}{space 3}0.109{col 54}{space 4}-.0377823{col 67}{space 3} .0037963
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0122452{col 26}{space 2} .0046611{col 37}{space 1}   -2.63{col 46}{space 3}0.009{col 54}{space 4}-.0213809{col 67}{space 3}-.0031096
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.0504703{col 26}{space 2} .1498952{col 37}{space 1}   -0.34{col 46}{space 3}0.736{col 54}{space 4}-.3442595{col 67}{space 3} .2433189
+{txt}{space 7}white {c |}{col 14}{res}{space 2}-.0481774{col 26}{space 2} .2729991{col 37}{space 1}   -0.18{col 46}{space 3}0.860{col 54}{space 4}-.5832458{col 67}{space 3} .4868909
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}-3.016097{col 26}{space 2} .6834852{col 54}{space 4}-4.355703{col 67}{space 3} -1.67649
+{txt}       /cut2 {c |}{col 14}{res}{space 2}-1.382979{col 26}{space 2} .6715405{col 54}{space 4}-2.699175{col 67}{space 3}-.0667841
+{txt}       /cut3 {c |}{col 14}{res}{space 2}-1.165725{col 26}{space 2}  .670702{col 54}{space 4}-2.480277{col 67}{space 3} .1488268
+{txt}       /cut4 {c |}{col 14}{res}{space 2} .3571444{col 26}{space 2} .6694971{col 54}{space 4}-.9550457{col 67}{space 3} 1.669335
+{txt}       /cut5 {c |}{col 14}{res}{space 2} .5497718{col 26}{space 2} .6702125{col 54}{space 4}-.7638205{col 67}{space 3} 1.863364
+{txt}       /cut6 {c |}{col 14}{res}{space 2} 1.573667{col 26}{space 2} .6769855{col 54}{space 4} .2468002{col 67}{space 3} 2.900534
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       591
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(free_trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(free_trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(free_trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(free_trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(free_trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(free_trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(free_trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4974619 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5025381 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.571912 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 3}3.028342 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.519459 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.99492 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.86464 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4517766 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:white}{space 11}{txt:=} {space 3}.9120135 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2}  .110173{col 31}{space 2} .0153932{col 42}{space 1}    7.16{col 51}{space 3}0.000{col 59}{space 4} .0800029{col 72}{space 3}  .140343
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0687881{col 31}{space 2} .0107988{col 42}{space 1}    6.37{col 51}{space 3}0.000{col 59}{space 4} .0476229{col 72}{space 3} .0899534
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .2777958{col 31}{space 2} .0220947{col 42}{space 1}   12.57{col 51}{space 3}0.000{col 59}{space 4} .2344911{col 72}{space 3} .3211006
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2} .2056265{col 31}{space 2} .0195148{col 42}{space 1}   10.54{col 51}{space 3}0.000{col 59}{space 4} .1673783{col 72}{space 3} .2438748
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0526616{col 31}{space 2} .0097314{col 42}{space 1}    5.41{col 51}{space 3}0.000{col 59}{space 4} .0335883{col 72}{space 3} .0717349
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0452999{col 31}{space 2} .0085071{col 42}{space 1}    5.32{col 51}{space 3}0.000{col 59}{space 4} .0286263{col 72}{space 3} .0619734
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .3425446{col 31}{space 2} .0203834{col 42}{space 1}   16.81{col 51}{space 3}0.000{col 59}{space 4} .3025938{col 72}{space 3} .3824953
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .3633271{col 31}{space 2}    .0207{col 42}{space 1}   17.55{col 51}{space 3}0.000{col 59}{space 4} .3227559{col 72}{space 3} .4038984
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0309278{col 31}{space 2} .0068135{col 42}{space 1}    4.54{col 51}{space 3}0.000{col 59}{space 4} .0175735{col 72}{space 3} .0442821
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0401628{col 31}{space 2} .0086952{col 42}{space 1}    4.62{col 51}{space 3}0.000{col 59}{space 4} .0231206{col 72}{space 3}  .057205
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .1100943{col 31}{space 2} .0135743{col 42}{space 1}    8.11{col 51}{space 3}0.000{col 59}{space 4} .0834892{col 72}{space 3} .1366993
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1559352{col 31}{space 2} .0175424{col 42}{space 1}    8.89{col 51}{space 3}0.000{col 59}{space 4} .1215527{col 72}{space 3} .1903177
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .0758029{col 31}{space 2} .0113777{col 42}{space 1}    6.66{col 51}{space 3}0.000{col 59}{space 4}  .053503{col 72}{space 3} .0981029
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .1208603{col 31}{space 2} .0162862{col 42}{space 1}    7.42{col 51}{space 3}0.000{col 59}{space 4}   .08894{col 72}{space 3} .1527806
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Model 3: With ethnocentrism
+. logit isolate i.trumpgop conserv ethnocentrism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-320.92694}  
+Iteration 1:{space 3}log likelihood = {res:-292.81526}  
+Iteration 2:{space 3}log likelihood = {res:-291.95003}  
+Iteration 3:{space 3}log likelihood = {res:-291.94841}  
+Iteration 4:{space 3}log likelihood = {res:-291.94841}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       590
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     57.96
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-291.94841{txt}{col 49}Pseudo R2{col 67}= {res}    0.0903
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      isolate{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2} .7435383{col 27}{space 2} .2163139{col 38}{space 1}    3.44{col 47}{space 3}0.001{col 55}{space 4}  .319571{col 68}{space 3} 1.167506
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2}-.1094272{col 27}{space 2} .1107792{col 38}{space 1}   -0.99{col 47}{space 3}0.323{col 55}{space 4}-.3265504{col 68}{space 3} .1076961
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .3538538{col 27}{space 2} .1000992{col 38}{space 1}    3.54{col 47}{space 3}0.000{col 55}{space 4} .1576629{col 68}{space 3} .5500447
+{txt}{space 4}education {c |}{col 15}{res}{space 2} -.117174{col 27}{space 2} .1098658{col 38}{space 1}   -1.07{col 47}{space 3}0.286{col 55}{space 4} -.332507{col 68}{space 3}  .098159
+{txt}{space 7}income {c |}{col 15}{res}{space 2}-.0204564{col 27}{space 2} .0141936{col 38}{space 1}   -1.44{col 47}{space 3}0.150{col 55}{space 4}-.0482753{col 68}{space 3} .0073625
+{txt}{space 10}age {c |}{col 15}{res}{space 2}-.0294082{col 27}{space 2} .0066293{col 38}{space 1}   -4.44{col 47}{space 3}0.000{col 55}{space 4}-.0424013{col 68}{space 3}-.0164151
+{txt}{space 7}female {c |}{col 15}{res}{space 2}-.2446702{col 27}{space 2}  .209367{col 38}{space 1}   -1.17{col 47}{space 3}0.243{col 55}{space 4}-.6550219{col 68}{space 3} .1656815
+{txt}{space 5}notwhite {c |}{col 15}{res}{space 2}-.1239203{col 27}{space 2} .3740389{col 38}{space 1}   -0.33{col 47}{space 3}0.740{col 55}{space 4}-.8570231{col 68}{space 3} .6091826
+{txt}{space 8}_cons {c |}{col 15}{res}{space 2} 1.058796{col 27}{space 2} .7087178{col 38}{space 1}    1.49{col 47}{space 3}0.135{col 55}{space 4}-.3302653{col 68}{space 3} 2.447858
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       590
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(isolate), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4983051 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5016949 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.579661 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2841808 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.513559 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.93051 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.84407 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4576271 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0898305 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}trumpgop {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .1549617{col 26}{space 2} .0218792{col 37}{space 1}    7.08{col 46}{space 3}0.000{col 54}{space 4} .1120793{col 67}{space 3} .1978441
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2783491{col 26}{space 2}  .027706{col 37}{space 1}   10.05{col 46}{space 3}0.000{col 54}{space 4} .2240463{col 67}{space 3} .3326519
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit refugee i.trumpgop conserv ethnocentrism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-748.95744}  
+Iteration 1:{space 3}log likelihood = {res: -706.1444}  
+Iteration 2:{space 3}log likelihood = {res:-705.42908}  
+Iteration 3:{space 3}log likelihood = {res:-705.42835}  
+Iteration 4:{space 3}log likelihood = {res:-705.42835}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       594
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     87.06
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-705.42835{txt}{col 49}Pseudo R2{col 67}= {res}    0.0581
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      refugee{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2}  1.12528{col 27}{space 2} .1734268{col 38}{space 1}    6.49{col 47}{space 3}0.000{col 55}{space 4} .7853699{col 68}{space 3} 1.465191
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2} .4217865{col 27}{space 2} .0895587{col 38}{space 1}    4.71{col 47}{space 3}0.000{col 55}{space 4} .2462547{col 68}{space 3} .5973183
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .1155765{col 27}{space 2} .0819323{col 38}{space 1}    1.41{col 47}{space 3}0.158{col 55}{space 4}-.0450078{col 68}{space 3} .2761609
+{txt}{space 4}education {c |}{col 15}{res}{space 2}-.1373191{col 27}{space 2} .0870442{col 38}{space 1}   -1.58{col 47}{space 3}0.115{col 55}{space 4}-.3079226{col 68}{space 3} .0332843
+{txt}{space 7}income {c |}{col 15}{res}{space 2} -.007721{col 27}{space 2} .0117587{col 38}{space 1}   -0.66{col 47}{space 3}0.511{col 55}{space 4}-.0307677{col 68}{space 3} .0153257
+{txt}{space 10}age {c |}{col 15}{res}{space 2} .0083906{col 27}{space 2} .0053076{col 38}{space 1}    1.58{col 47}{space 3}0.114{col 55}{space 4}-.0020121{col 68}{space 3} .0187933
+{txt}{space 7}female {c |}{col 15}{res}{space 2}-.0120574{col 27}{space 2} .1663675{col 38}{space 1}   -0.07{col 47}{space 3}0.942{col 55}{space 4}-.3381317{col 68}{space 3} .3140169
+{txt}{space 5}notwhite {c |}{col 15}{res}{space 2} .2231713{col 27}{space 2} .3005927{col 38}{space 1}    0.74{col 47}{space 3}0.458{col 55}{space 4}-.3659796{col 68}{space 3} .8123221
+{txt}{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /cut1 {c |}{col 15}{res}{space 2}-2.551134{col 27}{space 2} .6170303{col 55}{space 4}-3.760491{col 68}{space 3}-1.341777
+{txt}        /cut2 {c |}{col 15}{res}{space 2}-1.730441{col 27}{space 2} .5845537{col 55}{space 4}-2.876145{col 68}{space 3}-.5847365
+{txt}        /cut3 {c |}{col 15}{res}{space 2}-1.449998{col 27}{space 2} .5785632{col 55}{space 4}-2.583961{col 68}{space 3}-.3160345
+{txt}        /cut4 {c |}{col 15}{res}{space 2} .1965637{col 27}{space 2} .5658884{col 55}{space 4}-.9125572{col 68}{space 3} 1.305685
+{txt}        /cut5 {c |}{col 15}{res}{space 2} .3713185{col 27}{space 2} .5660047{col 55}{space 4}-.7380304{col 68}{space 3} 1.480667
+{txt}        /cut6 {c |}{col 15}{res}{space 2} 1.257536{col 27}{space 2} .5693543{col 55}{space 4} .1416218{col 68}{space 3}  2.37345
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       594
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(refugee==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(refugee==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(refugee==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(refugee==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(refugee==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(refugee==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(refugee==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4983165 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5016835 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.582492 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2845118 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.511785 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.93771 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 4}56.8367 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 4}.456229 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0892256 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2}   .02809{col 31}{space 2} .0079059{col 42}{space 1}    3.55{col 51}{space 3}0.000{col 59}{space 4} .0125947{col 72}{space 3} .0435853
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0092933{col 31}{space 2} .0028555{col 42}{space 1}    3.25{col 51}{space 3}0.001{col 59}{space 4} .0036967{col 72}{space 3} .0148899
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .0335307{col 31}{space 2} .0087501{col 42}{space 1}    3.83{col 51}{space 3}0.000{col 59}{space 4} .0163809{col 72}{space 3} .0506805
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2}  .011575{col 31}{space 2} .0033127{col 42}{space 1}    3.49{col 51}{space 3}0.000{col 59}{space 4} .0050822{col 72}{space 3} .0180679
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0183524{col 31}{space 2} .0065098{col 42}{space 1}    2.82{col 51}{space 3}0.005{col 59}{space 4} .0055934{col 72}{space 3} .0311113
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2}   .00657{col 31}{space 2} .0024455{col 42}{space 1}    2.69{col 51}{space 3}0.007{col 59}{space 4}  .001777{col 72}{space 3} .0113631
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .2308763{col 31}{space 2} .0226436{col 42}{space 1}   10.20{col 51}{space 3}0.000{col 59}{space 4} .1864956{col 72}{space 3} .2752569
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .1002637{col 31}{space 2} .0134822{col 42}{space 1}    7.44{col 51}{space 3}0.000{col 59}{space 4} .0738391{col 72}{space 3} .1266883
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0386145{col 31}{space 2} .0092663{col 42}{space 1}    4.17{col 51}{space 3}0.000{col 59}{space 4} .0204529{col 72}{space 3} .0567761
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0207648{col 31}{space 2} .0052097{col 42}{space 1}    3.99{col 51}{space 3}0.000{col 59}{space 4}  .010554{col 72}{space 3} .0309757
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .2163571{col 31}{space 2} .0193239{col 42}{space 1}   11.20{col 51}{space 3}0.000{col 59}{space 4}  .178483{col 72}{space 3} .2542311
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1487765{col 31}{space 2} .0155652{col 42}{space 1}    9.56{col 51}{space 3}0.000{col 59}{space 4} .1182694{col 72}{space 3} .1792837
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2}  .434179{col 31}{space 2} .0292284{col 42}{space 1}   14.85{col 51}{space 3}0.000{col 59}{space 4} .3768925{col 72}{space 3} .4914656
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .7027566{col 31}{space 2} .0268021{col 42}{space 1}   26.22{col 51}{space 3}0.000{col 59}{space 4} .6502255{col 72}{space 3} .7552878
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit free_trade i.trumpgop conserv ethnocentrism education income age female white
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-998.85813}  
+Iteration 1:{space 3}log likelihood = {res:-979.42333}  
+Iteration 2:{space 3}log likelihood = {res: -979.3288}  
+Iteration 3:{space 3}log likelihood = {res:-979.32878}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       587
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     39.06
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-979.32878{txt}{col 49}Pseudo R2{col 67}= {res}    0.0196
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   free_trade{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2} .5090404{col 27}{space 2} .1549948{col 38}{space 1}    3.28{col 47}{space 3}0.001{col 55}{space 4} .2052562{col 68}{space 3} .8128246
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2} .0794315{col 27}{space 2} .0804217{col 38}{space 1}    0.99{col 47}{space 3}0.323{col 55}{space 4}-.0781922{col 68}{space 3} .2370551
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .1410694{col 27}{space 2}  .074458{col 38}{space 1}    1.89{col 47}{space 3}0.058{col 55}{space 4}-.0048656{col 68}{space 3} .2870043
+{txt}{space 4}education {c |}{col 15}{res}{space 2}-.2067064{col 27}{space 2} .0790095{col 38}{space 1}   -2.62{col 47}{space 3}0.009{col 55}{space 4}-.3615622{col 68}{space 3}-.0518507
+{txt}{space 7}income {c |}{col 15}{res}{space 2}-.0160144{col 27}{space 2} .0105685{col 38}{space 1}   -1.52{col 47}{space 3}0.130{col 55}{space 4}-.0367283{col 68}{space 3} .0046995
+{txt}{space 10}age {c |}{col 15}{res}{space 2}-.0124648{col 27}{space 2}  .004662{col 38}{space 1}   -2.67{col 47}{space 3}0.008{col 55}{space 4}-.0216021{col 68}{space 3}-.0033275
+{txt}{space 7}female {c |}{col 15}{res}{space 2}-.0518271{col 27}{space 2} .1500871{col 38}{space 1}   -0.35{col 47}{space 3}0.730{col 55}{space 4}-.3459925{col 68}{space 3} .2423382
+{txt}{space 8}white {c |}{col 15}{res}{space 2}-.0435533{col 27}{space 2} .2733087{col 38}{space 1}   -0.16{col 47}{space 3}0.873{col 55}{space 4}-.5792285{col 68}{space 3} .4921218
+{txt}{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /cut1 {c |}{col 15}{res}{space 2}-3.648864{col 27}{space 2} .5755597{col 55}{space 4} -4.77694{col 68}{space 3}-2.520788
+{txt}        /cut2 {c |}{col 15}{res}{space 2}-2.010199{col 27}{space 2} .5595602{col 55}{space 4}-3.106917{col 68}{space 3}-.9134812
+{txt}        /cut3 {c |}{col 15}{res}{space 2} -1.79122{col 27}{space 2} .5582505{col 55}{space 4}-2.885371{col 68}{space 3}-.6970688
+{txt}        /cut4 {c |}{col 15}{res}{space 2}-.2627833{col 27}{space 2} .5535183{col 55}{space 4}-1.347659{col 68}{space 3} .8220926
+{txt}        /cut5 {c |}{col 15}{res}{space 2}-.0682974{col 27}{space 2} .5541427{col 55}{space 4}-1.154397{col 68}{space 3} 1.017802
+{txt}        /cut6 {c |}{col 15}{res}{space 2} .9489775{col 27}{space 2} .5613431{col 55}{space 4}-.1512347{col 68}{space 3}  2.04919
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       587
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(free_trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(free_trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(free_trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(free_trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(free_trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(free_trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(free_trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4974446 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5025554 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.574106 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2793867 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.519591 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.97956 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.89097 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 4}.451448 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:white}{space 11}{txt:=} {space 4}.911414 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2} .1086059{col 31}{space 2} .0152807{col 42}{space 1}    7.11{col 51}{space 3}0.000{col 59}{space 4} .0786563{col 72}{space 3} .1385554
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0682364{col 31}{space 2} .0107551{col 42}{space 1}    6.34{col 51}{space 3}0.000{col 59}{space 4} .0471568{col 72}{space 3} .0893159
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .2768637{col 31}{space 2} .0221222{col 42}{space 1}   12.52{col 51}{space 3}0.000{col 59}{space 4}  .233505{col 72}{space 3} .3202225
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2} .2055619{col 31}{space 2} .0195119{col 42}{space 1}   10.54{col 51}{space 3}0.000{col 59}{space 4} .1673193{col 72}{space 3} .2438045
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0529898{col 31}{space 2} .0097894{col 42}{space 1}    5.41{col 51}{space 3}0.000{col 59}{space 4}  .033803{col 72}{space 3} .0721766
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0456177{col 31}{space 2} .0085661{col 42}{space 1}    5.33{col 51}{space 3}0.000{col 59}{space 4} .0288284{col 72}{space 3}  .062407
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .3441639{col 31}{space 2} .0205046{col 42}{space 1}   16.78{col 51}{space 3}0.000{col 59}{space 4} .3039755{col 72}{space 3} .3843522
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .3645329{col 31}{space 2} .0208155{col 42}{space 1}   17.51{col 51}{space 3}0.000{col 59}{space 4} .3237354{col 72}{space 3} .4053305
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0312695{col 31}{space 2} .0068867{col 42}{space 1}    4.54{col 51}{space 3}0.000{col 59}{space 4} .0177718{col 72}{space 3} .0447671
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0404655{col 31}{space 2} .0087581{col 42}{space 1}    4.62{col 51}{space 3}0.000{col 59}{space 4} .0232999{col 72}{space 3} .0576311
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .1097414{col 31}{space 2} .0135709{col 42}{space 1}    8.09{col 51}{space 3}0.000{col 59}{space 4} .0831429{col 72}{space 3} .1363399
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1546649{col 31}{space 2} .0175004{col 42}{space 1}    8.84{col 51}{space 3}0.000{col 59}{space 4} .1203648{col 72}{space 3} .1889651
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .0763659{col 31}{space 2} .0114422{col 42}{space 1}    6.67{col 51}{space 3}0.000{col 59}{space 4} .0539396{col 72}{space 3} .0987921
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .1209207{col 31}{space 2} .0163107{col 42}{space 1}    7.41{col 51}{space 3}0.000{col 59}{space 4} .0889524{col 72}{space 3} .1528891
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. *Model 4:With nationalism and ethnocentrism 
+. logit isolate i.trumpgop conserv nationalism ethnocentrism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-318.94077}  
+Iteration 1:{space 3}log likelihood = {res:-285.46603}  
+Iteration 2:{space 3}log likelihood = {res:-284.13309}  
+Iteration 3:{space 3}log likelihood = {res:-284.12778}  
+Iteration 4:{space 3}log likelihood = {res:-284.12778}  
+{res}
+{txt}Logistic regression{col 49}Number of obs{col 67}= {res}       587
+{txt}{col 49}LR chi2({res}9{txt}){col 67}= {res}     69.63
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-284.12778{txt}{col 49}Pseudo R2{col 67}= {res}    0.1092
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      isolate{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2} .6336538{col 27}{space 2} .2201342{col 38}{space 1}    2.88{col 47}{space 3}0.004{col 55}{space 4} .2021987{col 68}{space 3} 1.065109
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2}-.1314212{col 27}{space 2} .1125882{col 38}{space 1}   -1.17{col 47}{space 3}0.243{col 55}{space 4}  -.35209{col 68}{space 3} .0892476
+{txt}{space 2}nationalism {c |}{col 15}{res}{space 2} .6985063{col 27}{space 2} .1959114{col 38}{space 1}    3.57{col 47}{space 3}0.000{col 55}{space 4} .3145271{col 68}{space 3} 1.082485
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .2828585{col 27}{space 2} .1009611{col 38}{space 1}    2.80{col 47}{space 3}0.005{col 55}{space 4} .0849785{col 68}{space 3} .4807386
+{txt}{space 4}education {c |}{col 15}{res}{space 2}-.0633501{col 27}{space 2} .1120543{col 38}{space 1}   -0.57{col 47}{space 3}0.572{col 55}{space 4}-.2829725{col 68}{space 3} .1562724
+{txt}{space 7}income {c |}{col 15}{res}{space 2}-.0190427{col 27}{space 2} .0144645{col 38}{space 1}   -1.32{col 47}{space 3}0.188{col 55}{space 4}-.0473925{col 68}{space 3} .0093071
+{txt}{space 10}age {c |}{col 15}{res}{space 2}-.0296093{col 27}{space 2} .0067211{col 38}{space 1}   -4.41{col 47}{space 3}0.000{col 55}{space 4}-.0427823{col 68}{space 3}-.0164363
+{txt}{space 7}female {c |}{col 15}{res}{space 2}-.3104278{col 27}{space 2} .2142437{col 38}{space 1}   -1.45{col 47}{space 3}0.147{col 55}{space 4}-.7303378{col 68}{space 3} .1094821
+{txt}{space 5}notwhite {c |}{col 15}{res}{space 2}-.0504725{col 27}{space 2} .3779734{col 38}{space 1}   -0.13{col 47}{space 3}0.894{col 55}{space 4}-.7912867{col 68}{space 3} .6903416
+{txt}{space 8}_cons {c |}{col 15}{res}{space 2}-1.148203{col 27}{space 2}  .935941{col 38}{space 1}   -1.23{col 47}{space 3}0.220{col 55}{space 4}-2.982613{col 68}{space 3} .6862078
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       587
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:Expression}:{space 1}{res:Pr(isolate), predict()}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4991482 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5008518 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.579216 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 3}3.030664 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2879046 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.516184 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.93697 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.81261 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4565588 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0902896 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26} Delta-method
+{col 14}{c |}     Margin{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}trumpgop {c |}
+{space 10}0  {c |}{col 14}{res}{space 2} .1568865{col 26}{space 2} .0223542{col 37}{space 1}    7.02{col 46}{space 3}0.000{col 54}{space 4} .1130731{col 67}{space 3} .2006999
+{txt}{space 10}1  {c |}{col 14}{res}{space 2} .2596237{col 26}{space 2} .0277158{col 37}{space 1}    9.37{col 46}{space 3}0.000{col 54}{space 4} .2053018{col 67}{space 3} .3139456
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit refugee i.trumpgop conserv nationalism ethnocentrism education income age female notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-746.04471}  
+Iteration 1:{space 3}log likelihood = {res:-683.82189}  
+Iteration 2:{space 3}log likelihood = {res:-682.20369}  
+Iteration 3:{space 3}log likelihood = {res:-682.19963}  
+Iteration 4:{space 3}log likelihood = {res:-682.19963}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       591
+{txt}{col 49}LR chi2({res}9{txt}){col 67}= {res}    127.69
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-682.19963{txt}{col 49}Pseudo R2{col 67}= {res}    0.0856
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      refugee{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2} .9946305{col 27}{space 2}  .176914{col 38}{space 1}    5.62{col 47}{space 3}0.000{col 55}{space 4} .6478855{col 68}{space 3} 1.341376
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2}  .390762{col 27}{space 2} .0922944{col 38}{space 1}    4.23{col 47}{space 3}0.000{col 55}{space 4} .2098683{col 68}{space 3} .5716557
+{txt}{space 2}nationalism {c |}{col 15}{res}{space 2} .9574195{col 27}{space 2} .1522746{col 38}{space 1}    6.29{col 47}{space 3}0.000{col 55}{space 4} .6589668{col 68}{space 3} 1.255872
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .0160647{col 27}{space 2} .0856781{col 38}{space 1}    0.19{col 47}{space 3}0.851{col 55}{space 4}-.1518612{col 68}{space 3} .1839907
+{txt}{space 4}education {c |}{col 15}{res}{space 2}-.0854907{col 27}{space 2} .0883302{col 38}{space 1}   -0.97{col 47}{space 3}0.333{col 55}{space 4}-.2586146{col 68}{space 3} .0876333
+{txt}{space 7}income {c |}{col 15}{res}{space 2}-.0062815{col 27}{space 2} .0119961{col 38}{space 1}   -0.52{col 47}{space 3}0.601{col 55}{space 4}-.0297935{col 68}{space 3} .0172304
+{txt}{space 10}age {c |}{col 15}{res}{space 2} .0083983{col 27}{space 2} .0054323{col 38}{space 1}    1.55{col 47}{space 3}0.122{col 55}{space 4}-.0022489{col 68}{space 3} .0190454
+{txt}{space 7}female {c |}{col 15}{res}{space 2}-.1102153{col 27}{space 2} .1696387{col 38}{space 1}   -0.65{col 47}{space 3}0.516{col 55}{space 4}-.4427011{col 68}{space 3} .2222705
+{txt}{space 5}notwhite {c |}{col 15}{res}{space 2} .2827292{col 27}{space 2} .3006001{col 38}{space 1}    0.94{col 47}{space 3}0.347{col 55}{space 4}-.3064361{col 68}{space 3} .8718946
+{txt}{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /cut1 {c |}{col 15}{res}{space 2} .1660946{col 27}{space 2} .7583952{col 55}{space 4}-1.320333{col 68}{space 3} 1.652522
+{txt}        /cut2 {c |}{col 15}{res}{space 2} 1.011628{col 27}{space 2} .7353778{col 55}{space 4}-.4296864{col 68}{space 3} 2.452942
+{txt}        /cut3 {c |}{col 15}{res}{space 2}  1.30368{col 27}{space 2} .7320219{col 55}{space 4} -.131057{col 68}{space 3} 2.738416
+{txt}        /cut4 {c |}{col 15}{res}{space 2} 3.022357{col 27}{space 2} .7330996{col 55}{space 4} 1.585508{col 68}{space 3} 4.459206
+{txt}        /cut5 {c |}{col 15}{res}{space 2} 3.209558{col 27}{space 2} .7345039{col 55}{space 4} 1.769957{col 68}{space 3} 4.649159
+{txt}        /cut6 {c |}{col 15}{res}{space 2} 4.154632{col 27}{space 2} .7437994{col 55}{space 4} 2.696813{col 68}{space 3} 5.612452
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       591
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(refugee==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(refugee==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(refugee==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(refugee==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(refugee==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(refugee==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(refugee==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 4}.499154 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 4}.500846 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 3}2.582064 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 3}3.028342 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2882121 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.514382 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}17.94416 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.80541 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4551607 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0896785 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2}  .022183{col 31}{space 2} .0064124{col 42}{space 1}    3.46{col 51}{space 3}0.001{col 59}{space 4} .0096149{col 72}{space 3} .0347511
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0083209{col 31}{space 2} .0026106{col 42}{space 1}    3.19{col 51}{space 3}0.001{col 59}{space 4} .0032043{col 72}{space 3} .0134376
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .0280062{col 31}{space 2} .0074696{col 42}{space 1}    3.75{col 51}{space 3}0.000{col 59}{space 4} .0133661{col 72}{space 3} .0426463
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2} .0108483{col 31}{space 2}  .003154{col 42}{space 1}    3.44{col 51}{space 3}0.001{col 59}{space 4} .0046666{col 72}{space 3}   .01703
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0158978{col 31}{space 2} .0056922{col 42}{space 1}    2.79{col 51}{space 3}0.005{col 59}{space 4} .0047413{col 72}{space 3} .0270544
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0063359{col 31}{space 2} .0023746{col 42}{space 1}    2.67{col 51}{space 3}0.008{col 59}{space 4} .0016817{col 72}{space 3} .0109901
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .2168918{col 31}{space 2} .0224456{col 42}{space 1}    9.66{col 51}{space 3}0.000{col 59}{space 4} .1728992{col 72}{space 3} .2608844
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .1018706{col 31}{space 2} .0139739{col 42}{space 1}    7.29{col 51}{space 3}0.000{col 59}{space 4} .0744823{col 72}{space 3}  .129259
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0394717{col 31}{space 2} .0095009{col 42}{space 1}    4.15{col 51}{space 3}0.000{col 59}{space 4} .0208503{col 72}{space 3} .0580931
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0222979{col 31}{space 2} .0056046{col 42}{space 1}    3.98{col 51}{space 3}0.000{col 59}{space 4}  .011313{col 72}{space 3} .0332827
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .2280125{col 31}{space 2} .0203739{col 42}{space 1}   11.19{col 51}{space 3}0.000{col 59}{space 4} .1880804{col 72}{space 3} .2679446
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1620468{col 31}{space 2} .0168705{col 42}{space 1}    9.61{col 51}{space 3}0.000{col 59}{space 4} .1289812{col 72}{space 3} .1951124
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .4495369{col 31}{space 2} .0303235{col 42}{space 1}   14.82{col 51}{space 3}0.000{col 59}{space 4} .3901039{col 72}{space 3} .5089699
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2} .6882796{col 31}{space 2} .0280403{col 42}{space 1}   24.55{col 51}{space 3}0.000{col 59}{space 4} .6333217{col 72}{space 3} .7432376
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit free_trade i.trumpgop conserv nationalism ethnocentrism education income age female white
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:  -996.009}  
+Iteration 1:{space 3}log likelihood = {res:-976.13522}  
+Iteration 2:{space 3}log likelihood = {res: -976.0361}  
+Iteration 3:{space 3}log likelihood = {res:-976.03607}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}       585
+{txt}{col 49}LR chi2({res}9{txt}){col 67}= {res}     39.95
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-976.03607{txt}{col 49}Pseudo R2{col 67}= {res}    0.0201
+
+{txt}{hline 14}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   free_trade{col 15}{c |}      Coef.{col 27}   Std. Err.{col 39}      z{col 47}   P>|z|{col 55}     [95% Con{col 68}f. Interval]
+{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}1.trumpgop {c |}{col 15}{res}{space 2} .4880442{col 27}{space 2} .1571833{col 38}{space 1}    3.10{col 47}{space 3}0.002{col 55}{space 4} .1799707{col 68}{space 3} .7961177
+{txt}{space 6}conserv {c |}{col 15}{res}{space 2} .0802822{col 27}{space 2} .0807887{col 38}{space 1}    0.99{col 47}{space 3}0.320{col 55}{space 4}-.0780608{col 68}{space 3} .2386251
+{txt}{space 2}nationalism {c |}{col 15}{res}{space 2} .1437313{col 27}{space 2}  .133485{col 38}{space 1}    1.08{col 47}{space 3}0.282{col 55}{space 4}-.1178945{col 68}{space 3}  .405357
+{txt}ethnocentrism {c |}{col 15}{res}{space 2} .1162932{col 27}{space 2} .0768195{col 38}{space 1}    1.51{col 47}{space 3}0.130{col 55}{space 4}-.0342701{col 68}{space 3} .2668566
+{txt}{space 4}education {c |}{col 15}{res}{space 2}-.1977429{col 27}{space 2} .0797923{col 38}{space 1}   -2.48{col 47}{space 3}0.013{col 55}{space 4}-.3541329{col 68}{space 3}-.0413529
+{txt}{space 7}income {c |}{col 15}{res}{space 2}-.0153147{col 27}{space 2} .0106329{col 38}{space 1}   -1.44{col 47}{space 3}0.150{col 55}{space 4}-.0361548{col 68}{space 3} .0055254
+{txt}{space 10}age {c |}{col 15}{res}{space 2}-.0122988{col 27}{space 2} .0046723{col 38}{space 1}   -2.63{col 47}{space 3}0.008{col 55}{space 4}-.0214563{col 68}{space 3}-.0031414
+{txt}{space 7}female {c |}{col 15}{res}{space 2} -.058535{col 27}{space 2} .1508265{col 38}{space 1}   -0.39{col 47}{space 3}0.698{col 55}{space 4}-.3541496{col 68}{space 3} .2370796
+{txt}{space 8}white {c |}{col 15}{res}{space 2}-.0565059{col 27}{space 2} .2740582{col 38}{space 1}   -0.21{col 47}{space 3}0.837{col 55}{space 4}-.5936501{col 68}{space 3} .4806382
+{txt}{hline 14}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+        /cut1 {c |}{col 15}{res}{space 2}-3.189368{col 27}{space 2} .6938229{col 55}{space 4}-4.549236{col 68}{space 3}  -1.8295
+{txt}        /cut2 {c |}{col 15}{res}{space 2}-1.563443{col 27}{space 2} .6818954{col 55}{space 4}-2.899933{col 68}{space 3}-.2269524
+{txt}        /cut3 {c |}{col 15}{res}{space 2}-1.342909{col 27}{space 2} .6809951{col 55}{space 4}-2.677635{col 68}{space 3}-.0081833
+{txt}        /cut4 {c |}{col 15}{res}{space 2} .1915158{col 27}{space 2} .6787984{col 55}{space 4}-1.138905{col 68}{space 3} 1.521936
+{txt}        /cut5 {c |}{col 15}{res}{space 2} .3862107{col 27}{space 2} .6793789{col 55}{space 4}-.9453475{col 68}{space 3} 1.717769
+{txt}        /cut6 {c |}{col 15}{res}{space 2} 1.404154{col 27}{space 2} .6855571{col 55}{space 4} .0604868{col 68}{space 3} 2.747821
+{txt}{hline 14}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins trumpgop, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}       585
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(free_trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(free_trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(free_trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(free_trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(free_trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(free_trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(free_trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:0.trumpgop}{space 6}{txt:=} {space 3}.4974359 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:1.trumpgop}{space 6}{txt:=} {space 3}.5025641 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:conserv}{space 9}{txt:=} {space 4}2.57094 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:nationalism}{space 5}{txt:=} {space 4}3.02906 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ethnocentr~m}{space 4}{txt:=} {space 3}.2831909 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:education}{space 7}{txt:=} {space 3}3.521368 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 4}17.9812 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}56.84103 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}.4512821 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:white}{space 11}{txt:=} {space 3}.9111111 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31} Delta-method
+{col 19}{c |}     Margin{col 31}   Std. Err.{col 43}      z{col 51}   P>|z|{col 59}     [95% Con{col 72}f. Interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpgop {c |}
+{space 13}1 0  {c |}{col 19}{res}{space 2} .1076095{col 31}{space 2} .0152458{col 42}{space 1}    7.06{col 51}{space 3}0.000{col 59}{space 4} .0777283{col 72}{space 3} .1374908
+{txt}{space 13}1 1  {c |}{col 19}{res}{space 2} .0689174{col 31}{space 2} .0108866{col 42}{space 1}    6.33{col 51}{space 3}0.000{col 59}{space 4} .0475802{col 72}{space 3} .0902547
+{txt}{space 13}2 0  {c |}{col 19}{res}{space 2} .2724091{col 31}{space 2} .0221017{col 42}{space 1}   12.33{col 51}{space 3}0.000{col 59}{space 4} .2290906{col 72}{space 3} .3157276
+{txt}{space 13}2 1  {c |}{col 19}{res}{space 2}  .204468{col 31}{space 2} .0195713{col 42}{space 1}   10.45{col 51}{space 3}0.000{col 59}{space 4}  .166109{col 72}{space 3}  .242827
+{txt}{space 13}3 0  {c |}{col 19}{res}{space 2} .0531499{col 31}{space 2} .0098226{col 42}{space 1}    5.41{col 51}{space 3}0.000{col 59}{space 4}  .033898{col 72}{space 3} .0724017
+{txt}{space 13}3 1  {c |}{col 19}{res}{space 2} .0459169{col 31}{space 2} .0086244{col 42}{space 1}    5.32{col 51}{space 3}0.000{col 59}{space 4} .0290134{col 72}{space 3} .0628205
+{txt}{space 13}4 0  {c |}{col 19}{res}{space 2} .3468012{col 31}{space 2}  .020608{col 42}{space 1}   16.83{col 51}{space 3}0.000{col 59}{space 4} .3064103{col 72}{space 3} .3871921
+{txt}{space 13}4 1  {c |}{col 19}{res}{space 2} .3658269{col 31}{space 2} .0208679{col 42}{space 1}   17.53{col 51}{space 3}0.000{col 59}{space 4} .3249266{col 72}{space 3} .4067271
+{txt}{space 13}5 0  {c |}{col 19}{res}{space 2} .0315912{col 31}{space 2} .0069574{col 42}{space 1}    4.54{col 51}{space 3}0.000{col 59}{space 4}  .017955{col 72}{space 3} .0452274
+{txt}{space 13}5 1  {c |}{col 19}{res}{space 2} .0404166{col 31}{space 2} .0087523{col 42}{space 1}    4.62{col 51}{space 3}0.000{col 59}{space 4} .0232625{col 72}{space 3} .0575708
+{txt}{space 13}6 0  {c |}{col 19}{res}{space 2} .1110333{col 31}{space 2} .0137422{col 42}{space 1}    8.08{col 51}{space 3}0.000{col 59}{space 4} .0840992{col 72}{space 3} .1379675
+{txt}{space 13}6 1  {c |}{col 19}{res}{space 2} .1542061{col 31}{space 2} .0175137{col 42}{space 1}    8.80{col 51}{space 3}0.000{col 59}{space 4} .1198798{col 72}{space 3} .1885324
+{txt}{space 13}7 0  {c |}{col 19}{res}{space 2} .0774058{col 31}{space 2} .0116137{col 42}{space 1}    6.67{col 51}{space 3}0.000{col 59}{space 4} .0546434{col 72}{space 3} .1001682
+{txt}{space 13}7 1  {c |}{col 19}{res}{space 2}  .120248{col 31}{space 2}  .016299{col 42}{space 1}    7.38{col 51}{space 3}0.000{col 59}{space 4} .0883025{col 72}{space 3} .1521935
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. ***
+. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/blumrm/Dropbox/current projects/Trumpism&ForPol/Publication_Uploads/BlumParker_ANES_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Feb 2019, 14:24:14
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
