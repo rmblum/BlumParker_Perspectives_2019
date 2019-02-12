@@ -1,0 +1,1178 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/blumrm/Dropbox/current projects/Trumpism&ForPol/Publication_Uploads/BlumParker_SCDS_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Feb 2019, 16:15:41
+
+{com}. do "/var/folders/cg/n5yn9g3s21g5pb8bmljjv1dnjymqtn/T//SD73902.000000"
+{txt}
+{com}. ***********************************
+. *Rachel Blum and Christoper Parker*
+. *Coding/Analysis of 2016 SCDS*
+. *Prepared for Perspectives on Politics, 2019*
+. ***********************************
+. 
+. *use "/BlumParker_SCDS_Subset.dta"
+. set more off
+{txt}
+{com}. 
+. ***********
+. *Contents:
+. **A. Descriptive statistics
+. **B. Regression models
+. ************
+. 
+. ***
+. *A. Descriptive statistics*
+. ***
+. 
+. 
+. **1. Table 1** 
+. 
+. **Table 1**
+. 
+. *Average age*
+. sum age
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}age {c |}{res}      2,384    55.43624    14.11363         18         87
+{txt}
+{com}. 
+. *Average education*
+. sum educ
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}educ {c |}{res}      2,500      3.6844    1.181759          1          5
+{txt}
+{com}. 
+. *Percent female*
+. tab female
+
+     {txt}female {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}      1,722       68.41       68.41
+{txt}          1 {c |}{res}        795       31.59      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      2,517      100.00
+{txt}
+{com}. 
+. *Average ideology*
+. sum ideo
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 8}ideo {c |}{res}      2,397    6.058365    .8342884          1          7
+{txt}
+{com}. 
+. *Average income*
+. sum income
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 6}income {c |}{res}      2,266    3.988085    1.232861          1          6
+{txt}
+{com}. 
+. *Average party identification*
+. sum pid
+
+{txt}    Variable {c |}        Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 57}
+{space 9}pid {c |}{res}      2,417    5.378113    1.526403          1          7
+{txt}
+{com}. 
+. *Percent white*
+. table white
+
+{txt}{hline 10}{c TT}{hline 11}
+    white {c |}      Freq.
+{hline 10}{c +}{hline 11}
+        0 {c |}        {res}250
+        {txt}1 {c |}      {res}2,212
+{txt}{hline 10}{c BT}{hline 11}
+
+{com}. ***
+. 
+. 
+. **2. Table 2: Candidate Preference**
+. tabulate prim
+
+       {txt}prim {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        610       24.24       24.24
+{txt}          1 {c |}{res}      1,022       40.60       64.84
+{txt}          2 {c |}{res}        274       10.89       75.73
+{txt}          3 {c |}{res}        188        7.47       83.19
+{txt}          4 {c |}{res}        423       16.81      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}      2,517      100.00
+{txt}
+{com}. ***
+. 
+. **3. Appendix: cross-tabs of dependent variables**
+. *Against GOP primary candidates*
+. tabulate isolate prim, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                          prim
+   isolate {c |}         0          1          2          3          4 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}       196        344        135         77        118 {txt}{c |}{res}       870 
+           {txt}{c |}{res}     32.56      33.86      49.63      40.96      28.03 {txt}{c |}{res}     34.81 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         2 {c |}{res}       170        314         82         65        122 {txt}{c |}{res}       753 
+           {txt}{c |}{res}     28.24      30.91      30.15      34.57      28.98 {txt}{c |}{res}     30.13 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         3 {c |}{res}        47        114         23         19         45 {txt}{c |}{res}       248 
+           {txt}{c |}{res}      7.81      11.22       8.46      10.11      10.69 {txt}{c |}{res}      9.92 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         4 {c |}{res}       129        217         23         26        106 {txt}{c |}{res}       501 
+           {txt}{c |}{res}     21.43      21.36       8.46      13.83      25.18 {txt}{c |}{res}     20.05 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         5 {c |}{res}        60         27          9          1         30 {txt}{c |}{res}       127 
+           {txt}{c |}{res}      9.97       2.66       3.31       0.53       7.13 {txt}{c |}{res}      5.08 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       602      1,016        272        188        421 {txt}{c |}{res}     2,499 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}16{txt}) = {res}115.1729  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate immban prim, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                          prim
+    immban {c |}         0          1          2          3          4 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}        66         45         63         27         18 {txt}{c |}{res}       219 
+           {txt}{c |}{res}     10.98       4.44      23.16      14.36       4.33 {txt}{c |}{res}      8.80 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         2 {c |}{res}       129        119         89         47         22 {txt}{c |}{res}       406 
+           {txt}{c |}{res}     21.46      11.75      32.72      25.00       5.29 {txt}{c |}{res}     16.31 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         3 {c |}{res}        90        114         47         21         23 {txt}{c |}{res}       295 
+           {txt}{c |}{res}     14.98      11.25      17.28      11.17       5.53 {txt}{c |}{res}     11.85 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         4 {c |}{res}       194        366         57         68        115 {txt}{c |}{res}       800 
+           {txt}{c |}{res}     32.28      36.13      20.96      36.17      27.64 {txt}{c |}{res}     32.13 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         5 {c |}{res}       122        369         16         25        238 {txt}{c |}{res}       770 
+           {txt}{c |}{res}     20.30      36.43       5.88      13.30      57.21 {txt}{c |}{res}     30.92 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       601      1,013        272        188        416 {txt}{c |}{res}     2,490 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}16{txt}) = {res}456.5117  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate trade prim, chi2 col 
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}                          prim
+     trade {c |}         0          1          2          3          4 {c |}     Total
+{hline 11}{c +}{hline 55}{c +}{hline 10}
+         1 {c |}{res}        92        107         37         29         24 {txt}{c |}{res}       289 
+           {txt}{c |}{res}     17.83      12.41      16.23      18.71       6.65 {txt}{c |}{res}     13.62 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         2 {c |}{res}       104        176         54         35         51 {txt}{c |}{res}       420 
+           {txt}{c |}{res}     20.16      20.42      23.68      22.58      14.13 {txt}{c |}{res}     19.79 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         3 {c |}{res}        77        120         61         34         37 {txt}{c |}{res}       329 
+           {txt}{c |}{res}     14.92      13.92      26.75      21.94      10.25 {txt}{c |}{res}     15.50 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         4 {c |}{res}        62        128         33         19         35 {txt}{c |}{res}       277 
+           {txt}{c |}{res}     12.02      14.85      14.47      12.26       9.70 {txt}{c |}{res}     13.05 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         5 {c |}{res}        69        142         25         23         60 {txt}{c |}{res}       319 
+           {txt}{c |}{res}     13.37      16.47      10.96      14.84      16.62 {txt}{c |}{res}     15.03 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         6 {c |}{res}        67        130         14         10         92 {txt}{c |}{res}       313 
+           {txt}{c |}{res}     12.98      15.08       6.14       6.45      25.48 {txt}{c |}{res}     14.75 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+         7 {c |}{res}        45         59          4          5         62 {txt}{c |}{res}       175 
+           {txt}{c |}{res}      8.72       6.84       1.75       3.23      17.17 {txt}{c |}{res}      8.25 
+{txt}{hline 11}{c +}{hline 55}{c +}{hline 10}
+     Total {c |}{res}       516        862        228        155        361 {txt}{c |}{res}     2,122 
+           {txt}{c |}{res}    100.00     100.00     100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}24{txt}) = {res}176.5866  {txt} Pr = {res}0.000
+{txt}
+{com}. 
+. *Against Trump support*
+. tabulate isolate trumpprim, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpprim
+   isolate {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       752        118 {txt}{c |}{res}       870 
+           {txt}{c |}{res}     36.19      28.03 {txt}{c |}{res}     34.81 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}       631        122 {txt}{c |}{res}       753 
+           {txt}{c |}{res}     30.37      28.98 {txt}{c |}{res}     30.13 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}       203         45 {txt}{c |}{res}       248 
+           {txt}{c |}{res}      9.77      10.69 {txt}{c |}{res}      9.92 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}       395        106 {txt}{c |}{res}       501 
+           {txt}{c |}{res}     19.01      25.18 {txt}{c |}{res}     20.05 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         5 {c |}{res}        97         30 {txt}{c |}{res}       127 
+           {txt}{c |}{res}      4.67       7.13 {txt}{c |}{res}      5.08 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,078        421 {txt}{c |}{res}     2,499 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res} 18.0259  {txt} Pr = {res}0.001
+{txt}
+{com}. tabulate immban trumpprim, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpprim
+    immban {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       201         18 {txt}{c |}{res}       219 
+           {txt}{c |}{res}      9.69       4.33 {txt}{c |}{res}      8.80 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}       384         22 {txt}{c |}{res}       406 
+           {txt}{c |}{res}     18.51       5.29 {txt}{c |}{res}     16.31 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}       272         23 {txt}{c |}{res}       295 
+           {txt}{c |}{res}     13.11       5.53 {txt}{c |}{res}     11.85 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}       685        115 {txt}{c |}{res}       800 
+           {txt}{c |}{res}     33.03      27.64 {txt}{c |}{res}     32.13 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         5 {c |}{res}       532        238 {txt}{c |}{res}       770 
+           {txt}{c |}{res}     25.65      57.21 {txt}{c |}{res}     30.92 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     2,074        416 {txt}{c |}{res}     2,490 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}4{txt}) = {res}180.0798  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate trade trumpprim, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}       trumpprim
+     trade {c |}         0          1 {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+         1 {c |}{res}       265         24 {txt}{c |}{res}       289 
+           {txt}{c |}{res}     15.05       6.65 {txt}{c |}{res}     13.62 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         2 {c |}{res}       369         51 {txt}{c |}{res}       420 
+           {txt}{c |}{res}     20.95      14.13 {txt}{c |}{res}     19.79 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         3 {c |}{res}       292         37 {txt}{c |}{res}       329 
+           {txt}{c |}{res}     16.58      10.25 {txt}{c |}{res}     15.50 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         4 {c |}{res}       242         35 {txt}{c |}{res}       277 
+           {txt}{c |}{res}     13.74       9.70 {txt}{c |}{res}     13.05 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         5 {c |}{res}       259         60 {txt}{c |}{res}       319 
+           {txt}{c |}{res}     14.71      16.62 {txt}{c |}{res}     15.03 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         6 {c |}{res}       221         92 {txt}{c |}{res}       313 
+           {txt}{c |}{res}     12.55      25.48 {txt}{c |}{res}     14.75 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+         7 {c |}{res}       113         62 {txt}{c |}{res}       175 
+           {txt}{c |}{res}      6.42      17.17 {txt}{c |}{res}      8.25 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}     1,761        361 {txt}{c |}{res}     2,122 
+           {txt}{c |}{res}    100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}6{txt}) = {res}110.8344  {txt} Pr = {res}0.000
+{txt}
+{com}. ***
+. 
+. **4. Appendix: by state**
+. *GOP primary preferences by state*
+. tabulate primall SPID, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+                      {c |}               SPID
+              primall {c |}    IllRep   TexasRep    UtahRep {c |}     Total
+{hline 22}{c +}{hline 33}{c +}{hline 10}
+           Ben Carson {c |}{res}        13         75         55 {txt}{c |}{res}       143 
+                      {txt}{c |}{res}      5.88       5.40       6.18 {txt}{c |}{res}      5.72 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+            Ben Sasse {c |}{res}         0          1          0 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.00       0.07       0.00 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+       Bernie Sanders {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+         Bobby Jindal {c |}{res}         0          1          1 {txt}{c |}{res}         2 
+                      {txt}{c |}{res}      0.00       0.07       0.11 {txt}{c |}{res}      0.08 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+        Carly Fiorina {c |}{res}        11         28         45 {txt}{c |}{res}        84 
+                      {txt}{c |}{res}      4.98       2.01       5.06 {txt}{c |}{res}      3.36 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+       Chris Christie {c |}{res}         0          3          1 {txt}{c |}{res}         4 
+                      {txt}{c |}{res}      0.00       0.22       0.11 {txt}{c |}{res}      0.16 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+         Donald Trump {c |}{res}        64        279         80 {txt}{c |}{res}       423 
+                      {txt}{c |}{res}     28.96      20.07       8.99 {txt}{c |}{res}     16.91 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+        Evan McMullin {c |}{res}         0          1         12 {txt}{c |}{res}        13 
+                      {txt}{c |}{res}      0.00       0.07       1.35 {txt}{c |}{res}      0.52 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+             Jeb Bush {c |}{res}         9         26         25 {txt}{c |}{res}        60 
+                      {txt}{c |}{res}      4.07       1.87       2.81 {txt}{c |}{res}      2.40 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+          Jim Gilmore {c |}{res}         1          0          0 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.45       0.00       0.00 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+        John Huntsman {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+          John Kasich {c |}{res}        37         65        172 {txt}{c |}{res}       274 
+                      {txt}{c |}{res}     16.74       4.68      19.33 {txt}{c |}{res}     10.96 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+         Kerry Bowers {c |}{res}         0          1          0 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.00       0.07       0.00 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+       Lindsay Graham {c |}{res}         0          2          0 {txt}{c |}{res}         2 
+                      {txt}{c |}{res}      0.00       0.14       0.00 {txt}{c |}{res}      0.08 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+          Marco Rubio {c |}{res}        18        119         51 {txt}{c |}{res}       188 
+                      {txt}{c |}{res}      8.14       8.56       5.73 {txt}{c |}{res}      7.52 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+        Mike Huckabee {c |}{res}         3         28          2 {txt}{c |}{res}        33 
+                      {txt}{c |}{res}      1.36       2.01       0.22 {txt}{c |}{res}      1.32 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+           Mike Pence {c |}{res}         0          0          1 {txt}{c |}{res}         1 
+                      {txt}{c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+          Mitt Romney {c |}{res}         0          1         28 {txt}{c |}{res}        29 
+                      {txt}{c |}{res}      0.00       0.07       3.15 {txt}{c |}{res}      1.16 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+            Rand Paul {c |}{res}        11         86         49 {txt}{c |}{res}       146 
+                      {txt}{c |}{res}      4.98       6.19       5.51 {txt}{c |}{res}      5.84 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+           Rick Perry {c |}{res}         0          7          0 {txt}{c |}{res}         7 
+                      {txt}{c |}{res}      0.00       0.50       0.00 {txt}{c |}{res}      0.28 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+        Rick Santorum {c |}{res}         1         18          2 {txt}{c |}{res}        21 
+                      {txt}{c |}{res}      0.45       1.29       0.22 {txt}{c |}{res}      0.84 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+         Scott Walker {c |}{res}         6         12         11 {txt}{c |}{res}        29 
+                      {txt}{c |}{res}      2.71       0.86       1.24 {txt}{c |}{res}      1.16 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+Someone else (Please  {c |}{res}         0          5         10 {txt}{c |}{res}        15 
+                      {txt}{c |}{res}      0.00       0.36       1.12 {txt}{c |}{res}      0.60 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+             Ted Cruz {c |}{res}        47        632        343 {txt}{c |}{res}     1,022 
+                      {txt}{c |}{res}     21.27      45.47      38.54 {txt}{c |}{res}     40.86 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+                Total {c |}{res}       221      1,390        890 {txt}{c |}{res}     2,501 
+                      {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}46{txt}) = {res}356.3047  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate primall SPID, chi2 col nofreq
+
+                      {txt}{c |}               SPID
+              primall {c |}    IllRep   TexasRep    UtahRep {c |}     Total
+{hline 22}{c +}{hline 33}{c +}{hline 10}
+           Ben Carson {c |}{res}      5.88       5.40       6.18 {txt}{c |}{res}      5.72 
+{txt}            Ben Sasse {c |}{res}      0.00       0.07       0.00 {txt}{c |}{res}      0.04 
+{txt}       Bernie Sanders {c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}         Bobby Jindal {c |}{res}      0.00       0.07       0.11 {txt}{c |}{res}      0.08 
+{txt}        Carly Fiorina {c |}{res}      4.98       2.01       5.06 {txt}{c |}{res}      3.36 
+{txt}       Chris Christie {c |}{res}      0.00       0.22       0.11 {txt}{c |}{res}      0.16 
+{txt}         Donald Trump {c |}{res}     28.96      20.07       8.99 {txt}{c |}{res}     16.91 
+{txt}        Evan McMullin {c |}{res}      0.00       0.07       1.35 {txt}{c |}{res}      0.52 
+{txt}             Jeb Bush {c |}{res}      4.07       1.87       2.81 {txt}{c |}{res}      2.40 
+{txt}          Jim Gilmore {c |}{res}      0.45       0.00       0.00 {txt}{c |}{res}      0.04 
+{txt}        John Huntsman {c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}          John Kasich {c |}{res}     16.74       4.68      19.33 {txt}{c |}{res}     10.96 
+{txt}         Kerry Bowers {c |}{res}      0.00       0.07       0.00 {txt}{c |}{res}      0.04 
+{txt}       Lindsay Graham {c |}{res}      0.00       0.14       0.00 {txt}{c |}{res}      0.08 
+{txt}          Marco Rubio {c |}{res}      8.14       8.56       5.73 {txt}{c |}{res}      7.52 
+{txt}        Mike Huckabee {c |}{res}      1.36       2.01       0.22 {txt}{c |}{res}      1.32 
+{txt}           Mike Pence {c |}{res}      0.00       0.00       0.11 {txt}{c |}{res}      0.04 
+{txt}          Mitt Romney {c |}{res}      0.00       0.07       3.15 {txt}{c |}{res}      1.16 
+{txt}            Rand Paul {c |}{res}      4.98       6.19       5.51 {txt}{c |}{res}      5.84 
+{txt}           Rick Perry {c |}{res}      0.00       0.50       0.00 {txt}{c |}{res}      0.28 
+{txt}        Rick Santorum {c |}{res}      0.45       1.29       0.22 {txt}{c |}{res}      0.84 
+{txt}         Scott Walker {c |}{res}      2.71       0.86       1.24 {txt}{c |}{res}      1.16 
+{txt}Someone else (Please  {c |}{res}      0.00       0.36       1.12 {txt}{c |}{res}      0.60 
+{txt}             Ted Cruz {c |}{res}     21.27      45.47      38.54 {txt}{c |}{res}     40.86 
+{txt}{hline 22}{c +}{hline 33}{c +}{hline 10}
+                Total {c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}         Pearson chi2({res}46{txt}) = {res}356.3047  {txt} Pr = {res}0.000
+{txt}
+{com}. 
+. *Trump primary support by state*
+. tabulate trumpprim SPID, chi2 col
+{txt}
+{c TLC}{hline 19}{c TRC}
+{c |} Key{col 21}{c |}
+{c LT}{hline 19}{c RT}
+{c |}{space 5}{it:frequency}{col 21}{c |}
+{c |}{space 1}{it:column percentage}{col 21}{c |}
+{c BLC}{hline 19}{c BRC}
+
+           {c |}               SPID
+ trumpprim {c |}    IllRep   TexasRep    UtahRep {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         0 {c |}{res}       158      1,123        813 {txt}{c |}{res}     2,094 
+           {txt}{c |}{res}     71.17      80.10      91.04 {txt}{c |}{res}     83.19 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+         1 {c |}{res}        64        279         80 {txt}{c |}{res}       423 
+           {txt}{c |}{res}     28.83      19.90       8.96 {txt}{c |}{res}     16.81 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}       222      1,402        893 {txt}{c |}{res}     2,517 
+           {txt}{c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res} 71.8848  {txt} Pr = {res}0.000
+{txt}
+{com}. tabulate trumpprim SPID, chi2 col nofreq
+
+           {txt}{c |}               SPID
+ trumpprim {c |}    IllRep   TexasRep    UtahRep {c |}     Total
+{hline 11}{c +}{hline 33}{c +}{hline 10}
+         0 {c |}{res}     71.17      80.10      91.04 {txt}{c |}{res}     83.19 
+{txt}         1 {c |}{res}     28.83      19.90       8.96 {txt}{c |}{res}     16.81 
+{txt}{hline 11}{c +}{hline 33}{c +}{hline 10}
+     Total {c |}{res}    100.00     100.00     100.00 {txt}{c |}{res}    100.00 
+
+{txt}          Pearson chi2({res}2{txt}) = {res} 71.8848  {txt} Pr = {res}0.000
+{txt}
+{com}. 
+. *Descriptive statistics by state*
+. table SPID, content (mean age n age)
+
+{txt}{hline 10}{c TT}{hline 23}
+     SPID {c |}  mean(age)      N(age)
+{hline 10}{c +}{hline 23}
+   IllRep {c |}   {res}55.48113         212
+ {txt}TexasRep {c |}   {res}57.01207       1,326
+  {txt}UtahRep {c |}   {res}52.95508         846
+{txt}{hline 10}{c BT}{hline 23}
+
+{com}. table SPID, content (mean educ n educ)
+
+{txt}{hline 10}{c TT}{hline 23}
+     SPID {c |} mean(educ)     N(educ)
+{hline 10}{c +}{hline 23}
+   IllRep {c |}   {res}3.701357         221
+ {txt}TexasRep {c |}   {res}3.632374       1,390
+  {txt}UtahRep {c |}    {res}3.76153         889
+{txt}{hline 10}{c BT}{hline 23}
+
+{com}. table SPID, content (mean female n female)
+
+{txt}{hline 10}{c TT}{hline 27}
+     SPID {c |} mean(female)     N(female)
+{hline 10}{c +}{hline 27}
+   IllRep {c |}     {res}1.283784           222
+ {txt}TexasRep {c |}     {res}1.378745         1,402
+  {txt}UtahRep {c |}     {res}1.225084           893
+{txt}{hline 10}{c BT}{hline 27}
+
+{com}. table SPID, content (mean ideo n ideo)
+
+{txt}{hline 10}{c TT}{hline 23}
+     SPID {c |} mean(ideo)     N(ideo)
+{hline 10}{c +}{hline 23}
+   IllRep {c |}   {res}5.978571         210
+ {txt}TexasRep {c |}   {res}6.179584       1,347
+  {txt}UtahRep {c |}   {res}5.883929         840
+{txt}{hline 10}{c BT}{hline 23}
+
+{com}. table SPID, content (mean income n income)
+
+{txt}{hline 10}{c TT}{hline 27}
+     SPID {c |} mean(income)     N(income)
+{hline 10}{c +}{hline 27}
+   IllRep {c |}      {res}4.00495           202
+ {txt}TexasRep {c |}     {res}3.960065         1,227
+  {txt}UtahRep {c |}      {res}4.02509           837
+{txt}{hline 10}{c BT}{hline 27}
+
+{com}. table SPID, content (mean pid n pid)
+
+{txt}{hline 10}{c TT}{hline 23}
+     SPID {c |}  mean(pid)      N(pid)
+{hline 10}{c +}{hline 23}
+   IllRep {c |}   {res}5.683645         214
+ {txt}TexasRep {c |}   {res}5.639272       1,347
+  {txt}UtahRep {c |}   {res}4.890771         856
+{txt}{hline 10}{c BT}{hline 23}
+
+{com}. table SPID, content (mean white n white)
+
+{txt}{hline 10}{c TT}{hline 25}
+     SPID {c |} mean(white)     N(white)
+{hline 10}{c +}{hline 25}
+   IllRep {c |}    {res}.9166667          216
+ {txt}TexasRep {c |}    {res}.8644315        1,372
+  {txt}UtahRep {c |}    {res}.9473684          874
+{txt}{hline 10}{c BT}{hline 25}
+
+{com}. ***
+. 
+. **************************
+. ***
+. *B. Models*
+. ***
+. 
+. **1. In Paper**
+. 
+. ologit isolate i.trumpprim ideo educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-2952.1371}  
+Iteration 1:{space 3}log likelihood = {res:-2906.2099}  
+Iteration 2:{space 3}log likelihood = {res:-2906.1106}  
+Iteration 3:{space 3}log likelihood = {res:-2906.1106}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     2,068
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}     92.05
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-2906.1106{txt}{col 49}Pseudo R2{col 67}= {res}    0.0156
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     isolate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .4921618{col 26}{space 2} .1093767{col 37}{space 1}    4.50{col 46}{space 3}0.000{col 54}{space 4} .2777874{col 67}{space 3} .7065362
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2}  .242728{col 26}{space 2}  .050314{col 37}{space 1}    4.82{col 46}{space 3}0.000{col 54}{space 4} .1441143{col 67}{space 3} .3413417
+{txt}{space 8}educ {c |}{col 14}{res}{space 2}-.0566483{col 26}{space 2} .0354117{col 37}{space 1}   -1.60{col 46}{space 3}0.110{col 54}{space 4}-.1260541{col 67}{space 3} .0127574
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0707219{col 26}{space 2} .0335652{col 37}{space 1}   -2.11{col 46}{space 3}0.035{col 54}{space 4}-.1365085{col 67}{space 3}-.0049353
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .0060623{col 26}{space 2} .0883054{col 37}{space 1}    0.07{col 46}{space 3}0.945{col 54}{space 4}-.1670131{col 67}{space 3} .1791377
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0195744{col 26}{space 2} .0029958{col 37}{space 1}   -6.53{col 46}{space 3}0.000{col 54}{space 4}-.0254461{col 67}{space 3}-.0137028
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} -.030055{col 26}{space 2} .1332986{col 37}{space 1}   -0.23{col 46}{space 3}0.822{col 54}{space 4}-.2913154{col 67}{space 3} .2312054
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}-.6697906{col 26}{space 2} .3895758{col 54}{space 4}-1.433345{col 67}{space 3} .0937639
+{txt}       /cut2 {c |}{col 14}{res}{space 2} .6366578{col 26}{space 2} .3895633{col 54}{space 4}-.1268723{col 67}{space 3} 1.400188
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 1.122627{col 26}{space 2} .3900138{col 54}{space 4} .3582143{col 67}{space 3}  1.88704
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 2.982928{col 26}{space 2} .3992645{col 54}{space 4} 2.200384{col 67}{space 3} 3.765472
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     2,068
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(isolate==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(isolate==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(isolate==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(isolate==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(isolate==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8365571 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1634429 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.045551 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.672631 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.988878 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}1.295938 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}55.28143 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0971954 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .3612605{col 32}{space 2} .0114471{col 43}{space 1}   31.56{col 52}{space 3}0.000{col 60}{space 4} .3388246{col 73}{space 3} .3836963
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2} .2569161{col 32}{space 2} .0198818{col 43}{space 1}   12.92{col 52}{space 3}0.000{col 60}{space 4} .2179485{col 73}{space 3} .2958837
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .3149807{col 32}{space 2} .0104278{col 43}{space 1}   30.21{col 52}{space 3}0.000{col 60}{space 4} .2945425{col 73}{space 3} .3354189
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2} .3038789{col 32}{space 2} .0112991{col 43}{space 1}   26.89{col 52}{space 3}0.000{col 60}{space 4} .2817331{col 73}{space 3} .3260247
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2} .0962656{col 32}{space 2} .0064973{col 43}{space 1}   14.82{col 52}{space 3}0.000{col 60}{space 4} .0835311{col 73}{space 3} .1090001
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2}  .114089{col 32}{space 2} .0079823{col 43}{space 1}   14.29{col 52}{space 3}0.000{col 60}{space 4} .0984439{col 73}{space 3}  .129734
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .1836717{col 32}{space 2} .0087564{col 43}{space 1}   20.98{col 52}{space 3}0.000{col 60}{space 4} .1665095{col 73}{space 3}  .200834
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2}  .255374{col 32}{space 2} .0175433{col 43}{space 1}   14.56{col 52}{space 3}0.000{col 60}{space 4} .2209898{col 73}{space 3} .2897583
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2} .0438214{col 32}{space 2} .0043474{col 43}{space 1}   10.08{col 52}{space 3}0.000{col 60}{space 4} .0353007{col 73}{space 3} .0523422
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2}  .069742{col 32}{space 2} .0086528{col 43}{space 1}    8.06{col 52}{space 3}0.000{col 60}{space 4} .0527829{col 73}{space 3} .0867011
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit immban i.trumpprim ideo educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-3046.0273}  
+Iteration 1:{space 3}log likelihood = {res: -2782.229}  
+Iteration 2:{space 3}log likelihood = {res:-2777.0021}  
+Iteration 3:{space 3}log likelihood = {res:-2776.9884}  
+Iteration 4:{space 3}log likelihood = {res:-2776.9884}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     2,060
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}    538.08
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-2776.9884{txt}{col 49}Pseudo R2{col 67}= {res}    0.0883
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      immban{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} 1.272701{col 26}{space 2} .1229017{col 37}{space 1}   10.36{col 46}{space 3}0.000{col 54}{space 4} 1.031819{col 67}{space 3} 1.513584
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2} .7976544{col 26}{space 2} .0520996{col 37}{space 1}   15.31{col 46}{space 3}0.000{col 54}{space 4} .6955409{col 67}{space 3} .8997678
+{txt}{space 8}educ {c |}{col 14}{res}{space 2}-.1438589{col 26}{space 2} .0366146{col 37}{space 1}   -3.93{col 46}{space 3}0.000{col 54}{space 4}-.2156223{col 67}{space 3}-.0720956
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0313628{col 26}{space 2} .0345309{col 37}{space 1}   -0.91{col 46}{space 3}0.364{col 54}{space 4}-.0990422{col 67}{space 3} .0363166
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .0738522{col 26}{space 2} .0913424{col 37}{space 1}    0.81{col 46}{space 3}0.419{col 54}{space 4}-.1051757{col 67}{space 3} .2528801
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0247093{col 26}{space 2} .0030161{col 37}{space 1}    8.19{col 46}{space 3}0.000{col 54}{space 4}  .018798{col 67}{space 3} .0306207
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} .4398246{col 26}{space 2} .1457018{col 37}{space 1}    3.02{col 46}{space 3}0.003{col 54}{space 4} .1542544{col 67}{space 3} .7253949
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2} 3.050055{col 26}{space 2} .4011944{col 54}{space 4} 2.263729{col 67}{space 3} 3.836382
+{txt}       /cut2 {c |}{col 14}{res}{space 2} 4.517009{col 26}{space 2} .4054029{col 54}{space 4} 3.722434{col 67}{space 3} 5.311584
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 5.174153{col 26}{space 2} .4085534{col 54}{space 4} 4.373403{col 67}{space 3} 5.974902
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 6.822645{col 26}{space 2} .4187361{col 54}{space 4} 6.001937{col 67}{space 3} 7.643352
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans 
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     2,060
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(immban==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(immban==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(immban==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(immban==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(immban==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8378641 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1621359 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.043835 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.672816 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.988835 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}1.295146 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}55.23252 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0970874 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .0678321{col 32}{space 2}  .005562{col 43}{space 1}   12.20{col 52}{space 3}0.000{col 60}{space 4} .0569307{col 73}{space 3} .0787335
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2} .0199734{col 32}{space 2} .0028145{col 43}{space 1}    7.10{col 52}{space 3}0.000{col 60}{space 4}  .014457{col 73}{space 3} .0254898
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .1720138{col 32}{space 2} .0090165{col 43}{space 1}   19.08{col 52}{space 3}0.000{col 60}{space 4} .1543418{col 73}{space 3} .1896859
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2} .0612212{col 32}{space 2} .0071014{col 43}{space 1}    8.62{col 52}{space 3}0.000{col 60}{space 4} .0473027{col 73}{space 3} .0751397
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2} .1385457{col 32}{space 2} .0084338{col 43}{space 1}   16.43{col 52}{space 3}0.000{col 60}{space 4} .1220157{col 73}{space 3} .1550756
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2} .0644619{col 32}{space 2} .0068479{col 43}{space 1}    9.41{col 52}{space 3}0.000{col 60}{space 4} .0510403{col 73}{space 3} .0778835
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .3815048{col 32}{space 2} .0118656{col 43}{space 1}   32.15{col 52}{space 3}0.000{col 60}{space 4} .3582486{col 73}{space 3}  .404761
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2} .3242325{col 32}{space 2} .0165784{col 43}{space 1}   19.56{col 52}{space 3}0.000{col 60}{space 4} .2917395{col 73}{space 3} .3567254
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2} .2401037{col 32}{space 2} .0102851{col 43}{space 1}   23.34{col 52}{space 3}0.000{col 60}{space 4} .2199453{col 73}{space 3}  .260262
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2} .5301111{col 32}{space 2} .0282549{col 43}{space 1}   18.76{col 52}{space 3}0.000{col 60}{space 4} .4747325{col 73}{space 3} .5854896
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit trade i.trumpprim ideo educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-3447.0602}  
+Iteration 1:{space 3}log likelihood = {res:-3349.0027}  
+Iteration 2:{space 3}log likelihood = {res:-3348.2786}  
+Iteration 3:{space 3}log likelihood = {res:-3348.2783}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     1,794
+{txt}{col 49}LR chi2({res}7{txt}){col 67}= {res}    197.56
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-3348.2783{txt}{col 49}Pseudo R2{col 67}= {res}    0.0287
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       trade{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .8504697{col 26}{space 2} .1178135{col 37}{space 1}    7.22{col 46}{space 3}0.000{col 54}{space 4} .6195594{col 67}{space 3}  1.08138
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2} .1790342{col 26}{space 2} .0503043{col 37}{space 1}    3.56{col 46}{space 3}0.000{col 54}{space 4} .0804395{col 67}{space 3} .2776288
+{txt}{space 8}educ {c |}{col 14}{res}{space 2}-.1100763{col 26}{space 2} .0374749{col 37}{space 1}   -2.94{col 46}{space 3}0.003{col 54}{space 4}-.1835257{col 67}{space 3}-.0366269
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.1150906{col 26}{space 2} .0352765{col 37}{space 1}   -3.26{col 46}{space 3}0.001{col 54}{space 4}-.1842312{col 67}{space 3}  -.04595
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .4550912{col 26}{space 2} .0940646{col 37}{space 1}    4.84{col 46}{space 3}0.000{col 54}{space 4} .2707279{col 67}{space 3} .6394545
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0207018{col 26}{space 2}  .003127{col 37}{space 1}    6.62{col 46}{space 3}0.000{col 54}{space 4}  .014573{col 67}{space 3} .0268306
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} .1970405{col 26}{space 2}  .146411{col 37}{space 1}    1.35{col 46}{space 3}0.178{col 54}{space 4}-.0899197{col 67}{space 3} .4840007
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2} .1364305{col 26}{space 2}   .39859{col 54}{space 4}-.6447915{col 67}{space 3} .9176525
+{txt}       /cut2 {c |}{col 14}{res}{space 2} 1.333214{col 26}{space 2} .3981285{col 54}{space 4} .5528965{col 67}{space 3} 2.113532
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 2.018072{col 26}{space 2} .3995793{col 54}{space 4} 1.234911{col 67}{space 3} 2.801233
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 2.626847{col 26}{space 2} .4016334{col 54}{space 4}  1.83966{col 67}{space 3} 3.414034
+{txt}       /cut5 {c |}{col 14}{res}{space 2} 3.394173{col 26}{space 2}  .404746{col 54}{space 4} 2.600886{col 67}{space 3} 4.187461
+{txt}       /cut6 {c |}{col 14}{res}{space 2} 4.663583{col 26}{space 2} .4124444{col 54}{space 4} 3.855206{col 67}{space 3} 5.471959
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     1,794
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8316611 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1683389 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.052174 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.689521 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.990524 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}1.272018 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}55.20178 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0981048 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .1391097{col 32}{space 2} .0085824{col 43}{space 1}   16.21{col 52}{space 3}0.000{col 60}{space 4} .1222886{col 73}{space 3} .1559309
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2}  .064575{col 32}{space 2} .0076076{col 43}{space 1}    8.49{col 52}{space 3}0.000{col 60}{space 4} .0496644{col 73}{space 3} .0794856
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .2093264{col 32}{space 2} .0101542{col 43}{space 1}   20.61{col 52}{space 3}0.000{col 60}{space 4} .1894246{col 73}{space 3} .2292282
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2} .1213983{col 32}{space 2} .0113071{col 43}{space 1}   10.74{col 52}{space 3}0.000{col 60}{space 4} .0992367{col 73}{space 3} .1435599
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2} .1662939{col 32}{space 2} .0092336{col 43}{space 1}   18.01{col 52}{space 3}0.000{col 60}{space 4} .1481964{col 73}{space 3} .1843915
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2} .1258665{col 32}{space 2} .0096296{col 43}{space 1}   13.07{col 52}{space 3}0.000{col 60}{space 4} .1069928{col 73}{space 3} .1447401
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .1462607{col 32}{space 2} .0086711{col 43}{space 1}   16.87{col 52}{space 3}0.000{col 60}{space 4} .1292656{col 73}{space 3} .1632557
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2} .1425977{col 32}{space 2} .0090747{col 43}{space 1}   15.71{col 52}{space 3}0.000{col 60}{space 4} .1248116{col 73}{space 3} .1603838
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2} .1466945{col 32}{space 2} .0084706{col 43}{space 1}   17.32{col 52}{space 3}0.000{col 60}{space 4} .1300924{col 73}{space 3} .1632965
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2} .1876807{col 32}{space 2} .0107924{col 43}{space 1}   17.39{col 52}{space 3}0.000{col 60}{space 4} .1665279{col 73}{space 3} .2088335
+{txt}{space 14}6#0  {c |}{col 20}{res}{space 2} .1296034{col 32}{space 2} .0078981{col 43}{space 1}   16.41{col 52}{space 3}0.000{col 60}{space 4} .1141235{col 73}{space 3} .1450833
+{txt}{space 14}6#1  {c |}{col 20}{res}{space 2} .2224754{col 32}{space 2}  .016322{col 43}{space 1}   13.63{col 52}{space 3}0.000{col 60}{space 4} .1904849{col 73}{space 3} .2544659
+{txt}{space 14}7#0  {c |}{col 20}{res}{space 2} .0627114{col 32}{space 2} .0054466{col 43}{space 1}   11.51{col 52}{space 3}0.000{col 60}{space 4} .0520362{col 73}{space 3} .0733866
+{txt}{space 14}7#1  {c |}{col 20}{res}{space 2} .1354064{col 32}{space 2} .0146023{col 43}{space 1}    9.27{col 52}{space 3}0.000{col 60}{space 4} .1067864{col 73}{space 3} .1640265
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. 
+. 
+. **2. In Appendix**
+. *With national identity/english variable*
+. 
+. ologit isolate i.trumpprim ideo eng educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-2946.9054}  
+Iteration 1:{space 3}log likelihood = {res:-2900.6967}  
+Iteration 2:{space 3}log likelihood = {res:-2900.5951}  
+Iteration 3:{space 3}log likelihood = {res: -2900.595}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     2,065
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}     92.62
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res} -2900.595{txt}{col 49}Pseudo R2{col 67}= {res}    0.0157
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}     isolate{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .4956604{col 26}{space 2}  .109518{col 37}{space 1}    4.53{col 46}{space 3}0.000{col 54}{space 4} .2810091{col 67}{space 3} .7103117
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2} .2437598{col 26}{space 2} .0503913{col 37}{space 1}    4.84{col 46}{space 3}0.000{col 54}{space 4} .1449946{col 67}{space 3}  .342525
+{txt}{space 9}eng {c |}{col 14}{res}{space 2} .0305833{col 26}{space 2} .0591636{col 37}{space 1}    0.52{col 46}{space 3}0.605{col 54}{space 4}-.0853753{col 67}{space 3} .1465419
+{txt}{space 8}educ {c |}{col 14}{res}{space 2}-.0561065{col 26}{space 2} .0354506{col 37}{space 1}   -1.58{col 46}{space 3}0.113{col 54}{space 4}-.1255884{col 67}{space 3} .0133753
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.0729617{col 26}{space 2} .0336139{col 37}{space 1}   -2.17{col 46}{space 3}0.030{col 54}{space 4}-.1388438{col 67}{space 3}-.0070796
+{txt}{space 6}female {c |}{col 14}{res}{space 2}-.0008767{col 26}{space 2} .0883682{col 37}{space 1}   -0.01{col 46}{space 3}0.992{col 54}{space 4}-.1740753{col 67}{space 3} .1723218
+{txt}{space 9}age {c |}{col 14}{res}{space 2}-.0195382{col 26}{space 2}  .003005{col 37}{space 1}   -6.50{col 46}{space 3}0.000{col 54}{space 4}-.0254279{col 67}{space 3}-.0136484
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2}-.0275024{col 26}{space 2} .1334195{col 37}{space 1}   -0.21{col 46}{space 3}0.837{col 54}{space 4}-.2889999{col 67}{space 3}  .233995
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2}-.5808262{col 26}{space 2} .4379522{col 54}{space 4}-1.439197{col 67}{space 3} .2775444
+{txt}       /cut2 {c |}{col 14}{res}{space 2}  .725641{col 26}{space 2}  .438034{col 54}{space 4}-.1328899{col 67}{space 3} 1.584172
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 1.212517{col 26}{space 2} .4384884{col 54}{space 4} .3530953{col 67}{space 3} 2.071938
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 3.081328{col 26}{space 2} .4469564{col 54}{space 4}  2.20531{col 67}{space 3} 3.957346
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     2,065
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(isolate==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(isolate==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(isolate==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(isolate==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(isolate==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8363196 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1636804 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.044697 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:eng}{space 13}{txt:=} {space 3}3.145763 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.674092 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.988378 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}1.295884 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 4}55.2799 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0973366 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .3613596{col 32}{space 2} .0114587{col 43}{space 1}   31.54{col 52}{space 3}0.000{col 60}{space 4}  .338901{col 73}{space 3} .3838182
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2} .2563306{col 32}{space 2} .0198759{col 43}{space 1}   12.90{col 52}{space 3}0.000{col 60}{space 4} .2173746{col 73}{space 3} .2952867
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .3149797{col 32}{space 2} .0104365{col 43}{space 1}   30.18{col 52}{space 3}0.000{col 60}{space 4} .2945245{col 73}{space 3}  .335435
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2} .3037129{col 32}{space 2} .0113213{col 43}{space 1}   26.83{col 52}{space 3}0.000{col 60}{space 4} .2815235{col 73}{space 3} .3259023
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2} .0964054{col 32}{space 2} .0065067{col 43}{space 1}   14.82{col 52}{space 3}0.000{col 60}{space 4} .0836526{col 73}{space 3} .1091583
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2} .1143698{col 32}{space 2}  .007998{col 43}{space 1}   14.30{col 52}{space 3}0.000{col 60}{space 4} .0986941{col 73}{space 3} .1300455
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .1838453{col 32}{space 2} .0087675{col 43}{space 1}   20.97{col 52}{space 3}0.000{col 60}{space 4} .1666614{col 73}{space 3} .2010292
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2} .2562566{col 32}{space 2} .0176099{col 43}{space 1}   14.55{col 52}{space 3}0.000{col 60}{space 4} .2217418{col 73}{space 3} .2907713
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2}   .04341{col 32}{space 2} .0043281{col 43}{space 1}   10.03{col 52}{space 3}0.000{col 60}{space 4} .0349271{col 73}{space 3} .0518928
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2} .0693301{col 32}{space 2} .0086318{col 43}{space 1}    8.03{col 52}{space 3}0.000{col 60}{space 4}  .052412{col 73}{space 3} .0862481
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit immban i.trumpprim ideo eng educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-3042.6357}  
+Iteration 1:{space 3}log likelihood = {res:-2777.1925}  
+Iteration 2:{space 3}log likelihood = {res:-2771.8003}  
+Iteration 3:{space 3}log likelihood = {res:-2771.7857}  
+Iteration 4:{space 3}log likelihood = {res:-2771.7857}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     2,057
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}    541.70
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}-2771.7857{txt}{col 49}Pseudo R2{col 67}= {res}    0.0890
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}      immban{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2}  1.26673{col 26}{space 2} .1228622{col 37}{space 1}   10.31{col 46}{space 3}0.000{col 54}{space 4} 1.025925{col 67}{space 3} 1.507536
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2} .7910178{col 26}{space 2} .0520596{col 37}{space 1}   15.19{col 46}{space 3}0.000{col 54}{space 4}  .688983{col 67}{space 3} .8930527
+{txt}{space 9}eng {c |}{col 14}{res}{space 2}-.1258908{col 26}{space 2}  .060925{col 37}{space 1}   -2.07{col 46}{space 3}0.039{col 54}{space 4}-.2453015{col 67}{space 3}-.0064801
+{txt}{space 8}educ {c |}{col 14}{res}{space 2}-.1413359{col 26}{space 2} .0366616{col 37}{space 1}   -3.86{col 46}{space 3}0.000{col 54}{space 4}-.2131914{col 67}{space 3}-.0694804
+{txt}{space 6}income {c |}{col 14}{res}{space 2} -.028562{col 26}{space 2} .0345517{col 37}{space 1}   -0.83{col 46}{space 3}0.408{col 54}{space 4} -.096282{col 67}{space 3}  .039158
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .0770059{col 26}{space 2} .0913399{col 37}{space 1}    0.84{col 46}{space 3}0.399{col 54}{space 4} -.102017{col 67}{space 3} .2560287
+{txt}{space 9}age {c |}{col 14}{res}{space 2} .0242469{col 26}{space 2} .0030228{col 37}{space 1}    8.02{col 46}{space 3}0.000{col 54}{space 4} .0183223{col 67}{space 3} .0301715
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} .4359044{col 26}{space 2} .1457828{col 37}{space 1}    2.99{col 46}{space 3}0.003{col 54}{space 4} .1501753{col 67}{space 3} .7216336
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2} 2.605056{col 26}{space 2} .4544894{col 54}{space 4} 1.714273{col 67}{space 3} 3.495839
+{txt}       /cut2 {c |}{col 14}{res}{space 2} 4.074299{col 26}{space 2} .4574946{col 54}{space 4} 3.177626{col 67}{space 3} 4.970972
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 4.733943{col 26}{space 2} .4597206{col 54}{space 4} 3.832907{col 67}{space 3} 5.634978
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 6.384047{col 26}{space 2} .4677388{col 54}{space 4} 5.467296{col 67}{space 3} 7.300798
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans 
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     2,057
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(immban==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(immban==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(immban==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(immban==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(immban==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8376276 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1623724 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.042975 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:eng}{space 13}{txt:=} {space 3}3.145357 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.674283 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.988333 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 4}1.29509 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}55.23092 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 4}.097229 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .0674119{col 32}{space 2} .0055434{col 43}{space 1}   12.16{col 52}{space 3}0.000{col 60}{space 4}  .056547{col 73}{space 3} .0782768
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2} .0199598{col 32}{space 2} .0028128{col 43}{space 1}    7.10{col 52}{space 3}0.000{col 60}{space 4} .0144469{col 73}{space 3} .0254728
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .1716374{col 32}{space 2} .0090168{col 43}{space 1}   19.04{col 52}{space 3}0.000{col 60}{space 4} .1539647{col 73}{space 3} .1893101
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2}  .061354{col 32}{space 2} .0071138{col 43}{space 1}    8.62{col 52}{space 3}0.000{col 60}{space 4} .0474113{col 73}{space 3} .0752967
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2} .1389014{col 32}{space 2} .0084554{col 43}{space 1}   16.43{col 52}{space 3}0.000{col 60}{space 4} .1223291{col 73}{space 3} .1554737
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2} .0648532{col 32}{space 2} .0068821{col 43}{space 1}    9.42{col 52}{space 3}0.000{col 60}{space 4} .0513646{col 73}{space 3} .0783418
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .3818977{col 32}{space 2} .0118999{col 43}{space 1}   32.09{col 52}{space 3}0.000{col 60}{space 4} .3585744{col 73}{space 3} .4052211
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2} .3251442{col 32}{space 2} .0165729{col 43}{space 1}   19.62{col 52}{space 3}0.000{col 60}{space 4} .2926619{col 73}{space 3} .3576266
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2} .2401515{col 32}{space 2} .0102993{col 43}{space 1}   23.32{col 52}{space 3}0.000{col 60}{space 4} .2199653{col 73}{space 3} .2603377
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2} .5286888{col 32}{space 2}   .02825{col 43}{space 1}   18.71{col 52}{space 3}0.000{col 60}{space 4} .4733198{col 73}{space 3} .5840577
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+. ologit trade i.trumpprim ideo eng educ income female age notwhite
+
+{res}{txt}Iteration 0:{space 3}log likelihood = {res:-3428.8966}  
+Iteration 1:{space 3}log likelihood = {res:-3330.4705}  
+Iteration 2:{space 3}log likelihood = {res:-3329.7304}  
+Iteration 3:{space 3}log likelihood = {res:  -3329.73}  
+Iteration 4:{space 3}log likelihood = {res:  -3329.73}  
+{res}
+{txt}Ordered logistic regression{col 49}Number of obs{col 67}= {res}     1,785
+{txt}{col 49}LR chi2({res}8{txt}){col 67}= {res}    198.33
+{txt}{col 49}Prob > chi2{col 67}= {res}    0.0000
+{txt}Log likelihood = {res}  -3329.73{txt}{col 49}Pseudo R2{col 67}= {res}    0.0289
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       trade{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      z{col 46}   P>|z|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 3}trumpprim {c |}
+{space 10}1  {c |}{col 14}{res}{space 2} .8530957{col 26}{space 2} .1181715{col 37}{space 1}    7.22{col 46}{space 3}0.000{col 54}{space 4} .6214837{col 67}{space 3} 1.084708
+{txt}{space 8}ideo {c |}{col 14}{res}{space 2} .1744092{col 26}{space 2} .0505049{col 37}{space 1}    3.45{col 46}{space 3}0.001{col 54}{space 4} .0754214{col 67}{space 3}  .273397
+{txt}{space 9}eng {c |}{col 14}{res}{space 2} -.003318{col 26}{space 2} .0609868{col 37}{space 1}   -0.05{col 46}{space 3}0.957{col 54}{space 4}  -.12285{col 67}{space 3}  .116214
+{txt}{space 8}educ {c |}{col 14}{res}{space 2} -.113597{col 26}{space 2} .0375912{col 37}{space 1}   -3.02{col 46}{space 3}0.003{col 54}{space 4}-.1872744{col 67}{space 3}-.0399195
+{txt}{space 6}income {c |}{col 14}{res}{space 2}-.1101292{col 26}{space 2} .0354017{col 37}{space 1}   -3.11{col 46}{space 3}0.002{col 54}{space 4}-.1795152{col 67}{space 3}-.0407431
+{txt}{space 6}female {c |}{col 14}{res}{space 2} .4623648{col 26}{space 2} .0942589{col 37}{space 1}    4.91{col 46}{space 3}0.000{col 54}{space 4} .2776208{col 67}{space 3} .6471087
+{txt}{space 9}age {c |}{col 14}{res}{space 2}  .020959{col 26}{space 2} .0031495{col 37}{space 1}    6.65{col 46}{space 3}0.000{col 54}{space 4}  .014786{col 67}{space 3} .0271319
+{txt}{space 4}notwhite {c |}{col 14}{res}{space 2} .2044054{col 26}{space 2} .1465937{col 37}{space 1}    1.39{col 46}{space 3}0.163{col 54}{space 4} -.082913{col 67}{space 3} .4917237
+{txt}{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+       /cut1 {c |}{col 14}{res}{space 2} .1296676{col 26}{space 2} .4568838{col 54}{space 4}-.7658081{col 67}{space 3} 1.025143
+{txt}       /cut2 {c |}{col 14}{res}{space 2} 1.328918{col 26}{space 2} .4568082{col 54}{space 4} .4335902{col 67}{space 3} 2.224246
+{txt}       /cut3 {c |}{col 14}{res}{space 2} 2.014825{col 26}{space 2} .4581874{col 54}{space 4} 1.116795{col 67}{space 3} 2.912856
+{txt}       /cut4 {c |}{col 14}{res}{space 2} 2.627334{col 26}{space 2} .4599683{col 54}{space 4} 1.725812{col 67}{space 3} 3.528855
+{txt}       /cut5 {c |}{col 14}{res}{space 2}  3.39808{col 26}{space 2} .4625548{col 54}{space 4} 2.491489{col 67}{space 3} 4.304671
+{txt}       /cut6 {c |}{col 14}{res}{space 2} 4.667553{col 26}{space 2} .4691914{col 54}{space 4} 3.747954{col 67}{space 3} 5.587151
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+
+{com}. margins i.trumpprim, atmeans
+{res}
+{txt}Adjusted predictions{col 49}Number of obs{col 67}= {res}     1,785
+{txt}Model VCE{col 14}: {res}OIM
+
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:1._predict}:{space 1}{res:Pr(trade==1), predict(pr outcome(1))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:2._predict}:{space 1}{res:Pr(trade==2), predict(pr outcome(2))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:3._predict}:{space 1}{res:Pr(trade==3), predict(pr outcome(3))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:4._predict}:{space 1}{res:Pr(trade==4), predict(pr outcome(4))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:5._predict}:{space 1}{res:Pr(trade==5), predict(pr outcome(5))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:6._predict}:{space 1}{res:Pr(trade==6), predict(pr outcome(6))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:7._predict}:{space 1}{res:Pr(trade==7), predict(pr outcome(7))}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col:at}:{space 1}{res:{txt:1.trumpprim}{space 5}{txt:=} {space 3}.8313725 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:2.trumpprim}{space 5}{txt:=} {space 3}.1686275 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:ideo}{space 12}{txt:=} {space 3}6.049356 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:eng}{space 13}{txt:=} {space 3}3.146779 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:educ}{space 12}{txt:=} {space 3}3.691317 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:income}{space 10}{txt:=} {space 3}3.991597 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:female}{space 10}{txt:=} {space 3}1.272269 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:age}{space 13}{txt:=} {space 3}55.21008 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+{txt}{p2colset 1 14 16 2}{...}
+{p2col: }{space 2}{res:{txt:notwhite}{space 8}{txt:=} {space 3}.0985994 {txt:(mean)}}{p_end}
+{p2colreset}{...}
+
+{res}{txt}{hline 19}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 20}{c |}{col 32} Delta-method
+{col 20}{c |}     Margin{col 32}   Std. Err.{col 44}      z{col 52}   P>|z|{col 60}     [95% Con{col 73}f. Interval]
+{hline 19}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+_predict#trumpprim {c |}
+{space 14}1#0  {c |}{col 20}{res}{space 2} .1392426{col 32}{space 2} .0086096{col 43}{space 1}   16.17{col 52}{space 3}0.000{col 60}{space 4} .1223681{col 73}{space 3}  .156117
+{txt}{space 14}1#1  {c |}{col 20}{res}{space 2} .0644834{col 32}{space 2} .0076187{col 43}{space 1}    8.46{col 52}{space 3}0.000{col 60}{space 4}  .049551{col 73}{space 3} .0794158
+{txt}{space 14}2#0  {c |}{col 20}{res}{space 2} .2100057{col 32}{space 2}  .010201{col 43}{space 1}   20.59{col 52}{space 3}0.000{col 60}{space 4} .1900122{col 73}{space 3} .2299992
+{txt}{space 14}2#1  {c |}{col 20}{res}{space 2} .1216336{col 32}{space 2} .0113559{col 43}{space 1}   10.71{col 52}{space 3}0.000{col 60}{space 4} .0993765{col 73}{space 3} .1438908
+{txt}{space 14}3#0  {c |}{col 20}{res}{space 2}  .166637{col 32}{space 2} .0092684{col 43}{space 1}   17.98{col 52}{space 3}0.000{col 60}{space 4} .1484712{col 73}{space 3} .1848028
+{txt}{space 14}3#1  {c |}{col 20}{res}{space 2} .1261519{col 32}{space 2} .0096686{col 43}{space 1}   13.05{col 52}{space 3}0.000{col 60}{space 4} .1072017{col 73}{space 3}  .145102
+{txt}{space 14}4#0  {c |}{col 20}{res}{space 2} .1469759{col 32}{space 2} .0087111{col 43}{space 1}   16.87{col 52}{space 3}0.000{col 60}{space 4} .1299025{col 73}{space 3} .1640493
+{txt}{space 14}4#1  {c |}{col 20}{res}{space 2} .1435901{col 32}{space 2} .0091286{col 43}{space 1}   15.73{col 52}{space 3}0.000{col 60}{space 4} .1256983{col 73}{space 3} .1614819
+{txt}{space 14}5#0  {c |}{col 20}{res}{space 2} .1466469{col 32}{space 2} .0084891{col 43}{space 1}   17.27{col 52}{space 3}0.000{col 60}{space 4} .1300086{col 73}{space 3} .1632852
+{txt}{space 14}5#1  {c |}{col 20}{res}{space 2} .1883595{col 32}{space 2} .0108622{col 43}{space 1}   17.34{col 52}{space 3}0.000{col 60}{space 4} .1670699{col 73}{space 3} .2096491
+{txt}{space 14}6#0  {c |}{col 20}{res}{space 2}  .128473{col 32}{space 2}  .007884{col 43}{space 1}   16.30{col 52}{space 3}0.000{col 60}{space 4} .1130206{col 73}{space 3} .1439254
+{txt}{space 14}6#1  {c |}{col 20}{res}{space 2} .2214503{col 32}{space 2} .0163681{col 43}{space 1}   13.53{col 52}{space 3}0.000{col 60}{space 4} .1893693{col 73}{space 3} .2535312
+{txt}{space 14}7#0  {c |}{col 20}{res}{space 2}  .062019{col 32}{space 2} .0054258{col 43}{space 1}   11.43{col 52}{space 3}0.000{col 60}{space 4} .0513846{col 73}{space 3} .0726533
+{txt}{space 14}7#1  {c |}{col 20}{res}{space 2} .1343312{col 32}{space 2}  .014568{col 43}{space 1}    9.22{col 52}{space 3}0.000{col 60}{space 4} .1057784{col 73}{space 3}  .162884
+{txt}{hline 19}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. 
+{txt}end of do-file
+
+{com}. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/blumrm/Dropbox/current projects/Trumpism&ForPol/Publication_Uploads/BlumParker_SCDS_Log.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Feb 2019, 16:16:23
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
