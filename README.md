@@ -1,4 +1,4 @@
-### "Trump-ing Foreign Affairs: Status Threat and Foreign Policy Preferences on the Right"
+### Data and replication information for "Trump-ing Foreign Affairs: Status Threat and Foreign Policy Preferences on the Right"
 **By Rachel Blum and Chris Parker**
 ***Perspectives on Politics*, 2019**
 
@@ -9,8 +9,8 @@ These analyses use two datasets: the 2016 American National Elections Study (pub
 
 1. **2016 [American National Elections Study]** (https://doi.org/10.3886/ICPSR36824.v2)
 2. **2016 State Convention Delegates Study (SCDS)**
-      - Access replication file here.
-      - Access full codebook here.
+      - [Replication file](SCDS_Analysis/BlumParker_SCDS_Subset.dta)
+      - [Full codebook](SCDS_Analysis/BlumParker_SCDS_Codebook.pdf)
 
 ### B. SOFTWARE
 
@@ -25,11 +25,11 @@ These analyses use two datasets: the 2016 American National Elections Study (pub
 ### C. FILE INVENTORY
 
 1. **For analysis of the ANES and creation of all ANES tables:**
-     - For variable coding, descriptive statistics, and regressions: BlumParker_ANES.do and BlumParker_ANES_LOG.smcl 
+     - For variable coding, descriptive statistics, and regressions: [Stata do-file](ANES_Analysis/BlumParker_ANES.do) and [Stata log file](ANES_Analysis/BlumParker_ANES_LOG.smcl) 
 2. **For all ANES figures:** 
-     - The following file contains code and necessary output from the ANES and Stata analyses: BlumParker_ANES_Figures.R
+     - This [file](ANES_Analysis/BlumParker_ANES_Figures.R) contains code and necessary output from the ANES and Stata analyses. 
 3. **For analysis of the 2016 SCDS and all SCDS tables:**
-     - For description of variable coding to produce replication dataset: BlumParker_SCDS.R and BlumParker_SCDS_Log.txt 
-     - For descriptive statistics and regressions from replication dataset: BlumParker_SCDS.do and BlumParker_SCDS_Log.smcl 
+     - For description of variable coding to produce replication dataset: [R code file] (SCDS_Analysis/BlumParker_SCDS.R) and [R log file](SCDS_Analysis/BlumParker_SCDS_Log.txt) 
+     - For descriptive statistics and regressions from replication dataset: [Stata do-file](SCDS_Analysis/BlumParker_SCDS.do) and [Stata log file](ANES_Analysis/BlumParker_SCDS_Log.smcl) 
 4. **For all SCDS figures:**
-     - The following file contains code and necessary output from the ANES and Stata analyses: BlumParker_SCDS_Figures.R 
+     - This [file](SCDS_Analysis/BlumParker_SCDS_Figures.R) contains code and necessary output from the ANES and Stata analyses.  
